@@ -33,7 +33,16 @@ public class Tela_inicial {
             painel.add(Entradas);
             Entradas.setBounds(100, 100, 300, 100);
             Font fonteEntradas = new Font("Serif", Font.BOLD, 20);
-            Entradas.setFont(fonteEntradas);            
+            Entradas.setFont(fonteEntradas);    
+            
+            //Carrinho
+            JButton carrinho = new JButton("Carrinho");
+            carrinho.setSize(100, 100);
+            painel.add(carrinho);
+            
+            JLayeredPane camada1 = new JLayeredPane();
+            camada1.add(carrinho);
+            painel.add(camada1, BorderLayout.EAST);
             
             // Configurações das entradas
             String[] caminhosImagens = {
@@ -89,7 +98,7 @@ public class Tela_inicial {
                 painelEntrada.add(listaIngredientes);
                 
                 // Contador de Quantidade
-                new Contador_E_Botoes();
+                new Contador_E_Botoes(painelEntrada);
             }
 
             // Título "PRATO PRINCIPAL"
@@ -152,24 +161,7 @@ public class Tela_inicial {
                 painelPrincipal.add(listaIngredientesPP);
                 
                 // Contador de Quantidade
-                JLabel contadorP = new JLabel(String.valueOf(0));
-                contadorP.setBounds(220, 135, 50, 50);
-                painelPrincipal.add(contadorP);
-                
-                // Botões pro contador
-                JButton BotaoMaisP = new JButton("+");
-                BotaoMaisP.setBounds(160, 138, 42, 42);
-                BotaoMaisP.setBackground(Color.DARK_GRAY);
-                BotaoMaisP.setForeground(Color.WHITE);
-                BotaoMaisP.setFont(fonteIngredientesPP);
-                painelPrincipal.add(BotaoMaisP);
-                
-                JButton BotaoMenosP = new JButton("-");
-                BotaoMenosP.setBounds(240, 138, 42, 42);
-                BotaoMenosP.setBackground(Color.DARK_GRAY);
-                BotaoMenosP.setForeground(Color.WHITE);
-                BotaoMenosP.setFont(fonteIngredientesPP);
-                painelPrincipal.add(BotaoMenosP);
+                new Contador_E_Botoes(painelPrincipal);
             }
 
             // Título "SOBREMESA"
@@ -232,33 +224,13 @@ public class Tela_inicial {
                 painelSobremesa.add(listaIngredientesS);
                 
                 // Contador de Quantidade
-                JLabel contadorS = new JLabel(String.valueOf(0));
-                contadorS.setBounds(20, 135, 50, 50);
-                painelSobremesa.add(contadorS);
-                
-                // Botões pro contador
-                JButton BotaoMaisS = new JButton("+");
-                BotaoMaisS.setBounds(160, 138, 42, 42);
-                BotaoMaisS.setBackground(Color.DARK_GRAY);
-                BotaoMaisS.setForeground(Color.WHITE);
-                BotaoMaisS.setFont(fonteIngredientesS);
-                painelSobremesa.add(BotaoMaisS);
-                
-                JButton BotaoMenosS = new JButton("-");
-                BotaoMenosS.setBounds(240, 138, 42, 42);
-                BotaoMenosS.setBackground(Color.DARK_GRAY);
-                BotaoMenosS.setForeground(Color.WHITE);
-                BotaoMenosS.setFont(fonteIngredientesS);
-                painelSobremesa.add(BotaoMenosS);
+                new Contador_E_Botoes(painelSobremesa);
             }
+            
 
             // Ajusta o tamanho do painel principal para o tamanho necessário
-            painel.setPreferredSize(new Dimension(1200, 1600)); // Ajuste conforme necessário
+            painel.setPreferredSize(new Dimension(1200, 1600)); // Ajuste conforme necessário        
 
-            // Botão de quantidade de cada prato
-            
-            
-            
             setVisible(true);
         }
     }
