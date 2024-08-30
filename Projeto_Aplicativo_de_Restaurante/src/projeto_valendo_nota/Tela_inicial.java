@@ -41,7 +41,6 @@ public class Tela_inicial {
             painel.add(carrinho);
             
             JLayeredPane camada1 = new JLayeredPane();
-            camada1.add(carrinho);
             painel.add(camada1, BorderLayout.EAST);
             
             // Configurações das entradas
