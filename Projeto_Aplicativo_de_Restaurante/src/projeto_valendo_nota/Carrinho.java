@@ -2,7 +2,7 @@ package projeto_valendo_nota;
 
 public class Carrinho implements Pratos
 {
-	public void Carrinho()
+	public Carrinho()
 	{
 		for(int ID = 0; ID <= 8; ID++)
 		{

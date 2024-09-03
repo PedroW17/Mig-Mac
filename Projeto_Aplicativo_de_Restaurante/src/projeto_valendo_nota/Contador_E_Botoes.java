@@ -62,63 +62,63 @@ public class Contador_E_Botoes implements Pratos
         		});
         switch(ID)
         {
-        case 1:
+        case 0:
         {
         	Nomes[ID] = "Bruschetta";
         	Preco[ID] = 49.19f;
         }
         break;
         
-        case 2:
+        case 1:
         {
         	Nomes[ID] = "Casca de Caranguejo";
         	Preco[ID] = 75.00f;
         }
         break;
         
-        case 3:
+        case 2:
         {
         	Nomes[ID] = "Bolinho de Pirarucu";
         	Preco[ID] = 54.99f;
         }
         break;
         
-        case 4:
+        case 3:
         {
         	Nomes[ID] = "Ratatouille";
         	Preco[ID] = 180.00f;
         }
         break;
         
-        case 5:
+        case 4:
         {
         	Nomes[ID] = "Prato 2";
         	Preco[ID] = 0.00f;
         }
         break;
         
-        case 6:
+        case 5:
         {
         	Nomes[ID] = "Prato 3";
         	Preco[ID] = 0.00f;
         }
         break;
         
-        case 7:
+        case 6:
         {
         	Nomes[ID] = "Tiramisu";
         	Preco[ID] = 63.49f;
         }
         break;
         
-        case 8:
+        case 7:
         {
         	Nomes[ID] = "Cheesecake";
         	Preco[ID] = 47.34f;
         }
         break;
         
-        case 9:
+        case 8:
         {
         	Nomes[ID] = "Brownie";
         	Preco[ID] = 47.34f;
