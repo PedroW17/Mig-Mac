@@ -3,16 +3,16 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Contador_E_Botoes implements Pratos
+public class Contador_E_Botoes
 {
 	// Cria a variável painel
 	private JPanel painel;
+	public int Contador = 0;
 	
-	// Cria um contador para o textfield
-	private int Contador = 0;
-		
-	public Contador_E_Botoes(JPanel painel)
+	public Contador_E_Botoes(JPanel painel, int i)
 	{
+		int ID = i+1;
+		
 		// Declara que a variável painel vai ser o JPanel pego em Tela_inicial
 		this.painel = painel;
 		
@@ -58,23 +58,5 @@ public class Contador_E_Botoes implements Pratos
         		}
         	}
         		});
-	}
-	
-	public Contador_E_Botoes(String Nome[], double Preco, int Quantidade)
-	{
-		int i = 0;
-		i++;
-		if(i == 1)
-		{
-			Nome[0] = "Bruschetta";
-			Quantidade = Contador;
-			Preco = 15.99;
-		} else if(i == 2)
-		{
-			Nome[1] = "Casca de Caranguejo";
-		} else if(i == 3)
-		{
-			Nome[2] = "Bolinho de Pirarucu";
-		}
 	}
 }

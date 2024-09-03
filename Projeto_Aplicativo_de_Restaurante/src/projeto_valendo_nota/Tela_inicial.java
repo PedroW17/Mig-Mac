@@ -1,12 +1,14 @@
 package projeto_valendo_nota;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Tela_inicial {
 
     public class Janela extends JFrame {
         public Janela() {
+        	int i = 0;
             // Configurações da Janela
             setUndecorated(true);
             setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -37,11 +39,17 @@ public class Tela_inicial {
             
             //Carrinho
             JButton carrinho = new JButton("Carrinho");
-            carrinho.setSize(100, 100);
+            carrinho.setBounds(10, 10, 100, 100);
             painel.add(carrinho);
-            
-            JLayeredPane camada1 = new JLayeredPane();
-            painel.add(camada1, BorderLayout.EAST);
+            carrinho.addActionListener(new ActionListener()
+            		{
+            	public void actionPerformed(ActionEvent e)
+            	{
+            		Carrinho carrinho = new Carrinho();
+            		carrinho.Lista(0, 0);
+            		carrinho.ExibirCarrinho();
+            	}
+            		});
             
             // Configurações das entradas
             String[] caminhosImagens = {
@@ -52,7 +60,7 @@ public class Tela_inicial {
 
             String[] nomesPratos = {
                 "Bruschetta",
-                "Casca de Caranguejo",
+                "Casca de Caranguejo", 
                 "Bolinho de Pirarucu"
             };
 
@@ -68,7 +76,7 @@ public class Tela_inicial {
             int posicaoInicialX = 100;
             int posicaoY = 200;
 
-            for (int i = 0; i < caminhosImagens.length; i++) {
+            for (i = 0; i < caminhosImagens.length; i++) {
                 // Criando o painel para cada entrada
                 JPanel painelEntrada = new JPanel();
                 painelEntrada.setLayout(null);
@@ -97,7 +105,7 @@ public class Tela_inicial {
                 painelEntrada.add(listaIngredientes);
                 
                 // Contador de Quantidade
-                new Contador_E_Botoes(painelEntrada);
+                new Contador_E_Botoes(painelEntrada, i);
             }
 
             // Título "PRATO PRINCIPAL"
@@ -131,7 +139,7 @@ public class Tela_inicial {
             int posicaoInicialXPP = 100;
             int posicaoYPP = 550;
 
-            for (int i = 0; i < caminhosImagensPP.length; i++) {
+            for (i = 0; i < caminhosImagensPP.length; i++) {
                 // Criando o painel para cada prato principal
                 JPanel painelPrincipal = new JPanel();
                 painelPrincipal.setLayout(null);
@@ -160,7 +168,7 @@ public class Tela_inicial {
                 painelPrincipal.add(listaIngredientesPP);
                 
                 // Contador de Quantidade
-                new Contador_E_Botoes(painelPrincipal);
+                new Contador_E_Botoes(painelPrincipal, i+3);
             }
 
             // Título "SOBREMESA"
@@ -194,7 +202,7 @@ public class Tela_inicial {
             int posicaoInicialXS = 100;
             int posicaoYS = 900;
 
-            for (int i = 0; i < caminhosImagensS.length; i++) {
+            for (i = 0; i < caminhosImagensS.length; i++) {
                 // Criando o painel para cada sobremesa
                 JPanel painelSobremesa = new JPanel();
                 painelSobremesa.setLayout(null);
@@ -223,7 +231,7 @@ public class Tela_inicial {
                 painelSobremesa.add(listaIngredientesS);
                 
                 // Contador de Quantidade
-                new Contador_E_Botoes(painelSobremesa);
+                new Contador_E_Botoes(painelSobremesa, i+6);
             }
             
 
