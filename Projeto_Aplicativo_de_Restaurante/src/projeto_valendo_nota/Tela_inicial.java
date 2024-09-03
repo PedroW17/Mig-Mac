@@ -1,5 +1,4 @@
 package projeto_valendo_nota;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -11,9 +10,12 @@ public class Tela_inicial {
         	int i = 0;
             // Configurações da Janela
             setUndecorated(true);
-            setExtendedState(JFrame.MAXIMIZED_BOTH);
+            // setExtendedState(JFrame.MAXIMIZED_BOTH);
+            setSize(1280,1080);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+            // setResizable(false);
+            setLocationRelativeTo(null);
+            
             // Criação do painel principal
             JPanel painel = new JPanel();
             painel.setLayout(null);
@@ -45,9 +47,7 @@ public class Tela_inicial {
             		{
             	public void actionPerformed(ActionEvent e)
             	{
-            		Carrinho carrinho = new Carrinho();
-            		carrinho.Lista(0, 0);
-            		carrinho.ExibirCarrinho();
+            		new Carrinho();
             	}
             		});
             
@@ -237,7 +237,6 @@ public class Tela_inicial {
 
             // Ajusta o tamanho do painel principal para o tamanho necessário
             painel.setPreferredSize(new Dimension(1200, 1600)); // Ajuste conforme necessário        
-
             setVisible(true);
         }
     }

@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Contador_E_Botoes
+public class Contador_E_Botoes implements Pratos
 {
 	// Cria a variável painel
 	private JPanel painel;
@@ -11,7 +11,7 @@ public class Contador_E_Botoes
 	
 	public Contador_E_Botoes(JPanel painel, int i)
 	{
-		int ID = i+1;
+		int ID = i;
 		
 		// Declara que a variável painel vai ser o JPanel pego em Tela_inicial
 		this.painel = painel;
@@ -37,6 +37,7 @@ public class Contador_E_Botoes
         	public void actionPerformed(ActionEvent e)
         	{
         		Contador++;
+        		Quantidade[ID] = Contador;
         		contador.setText(String.valueOf(Contador));
         	}
         		});
@@ -54,9 +55,75 @@ public class Contador_E_Botoes
         		if(Contador > 0)
         		{
         			Contador--;
+        			Quantidade[ID] = Contador;
         			contador.setText(String.valueOf(Contador));
         		}
         	}
         		});
+        switch(ID)
+        {
+        case 1:
+        {
+        	Nomes[ID] = "Bruschetta";
+        	Preco[ID] = 49.19f;
+        }
+        break;
+        
+        case 2:
+        {
+        	Nomes[ID] = "Casca de Caranguejo";
+        	Preco[ID] = 75.00f;
+        }
+        break;
+        
+        case 3:
+        {
+        	Nomes[ID] = "Bolinho de Pirarucu";
+        	Preco[ID] = 54.99f;
+        }
+        break;
+        
+        case 4:
+        {
+        	Nomes[ID] = "Ratatouille";
+        	Preco[ID] = 180.00f;
+        }
+        break;
+        
+        case 5:
+        {
+        	Nomes[ID] = "Prato 2";
+        	Preco[ID] = 0.00f;
+        }
+        break;
+        
+        case 6:
+        {
+        	Nomes[ID] = "Prato 3";
+        	Preco[ID] = 0.00f;
+        }
+        break;
+        
+        case 7:
+        {
+        	Nomes[ID] = "Tiramisu";
+        	Preco[ID] = 63.49f;
+        }
+        break;
+        
+        case 8:
+        {
+        	Nomes[ID] = "Cheesecake";
+        	Preco[ID] = 47.34f;
+        }
+        break;
+        
+        case 9:
+        {
+        	Nomes[ID] = "Brownie";
+        	Preco[ID] = 47.34f;
+        }
+        break;
+        }
 	}
 }
