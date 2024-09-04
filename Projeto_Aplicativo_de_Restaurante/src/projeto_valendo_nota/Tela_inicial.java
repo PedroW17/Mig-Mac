@@ -53,9 +53,9 @@ public class Tela_inicial {
             
             // Configurações das entradas
             String[] caminhosImagens = {
-                "C:\\Users\\docinho\\Bruschetta.jpg",
-                "C:\\Users\\docinho\\casquinha-de-caranguejo.jpg",
-                "C:\\Users\\docinho\\bolinho-de-pirarucu.jpg"
+                "C:\\Users\\docinho\\Bruschetta.jpg",                 //tá errado
+                "C:\\Users\\docinho\\casquinha-de-caranguejo.jpg",   //tá errado
+                "C:\\Users\\docinho\\bolinho-de-pirarucu.jpg"       //tá errado
             };
 
             String[] nomesPratos = {
@@ -116,9 +116,9 @@ public class Tela_inicial {
 
             // Configurações dos pratos principais
             String[] caminhosImagensPP = {
-                "C:\\Users\\docinho\\Ratatouille.jpg",
-                "C:\\Users\\docinho\\prato2.jpg",
-                "C:\\Users\\docinho\\prato3.jpg"
+                "C:\\Users\\docinho\\Ratatouille.jpg",   //tá errado
+                "C:\\Users\\docinho\\prato2.jpg",       //tá errado
+                "C:\\Users\\docinho\\prato3.jpg"       //tá errado
             };
 
             String[] nomesPratosPP = {
@@ -236,7 +236,7 @@ public class Tela_inicial {
             
 
             // Ajusta o tamanho do painel principal para o tamanho necessário
-            painel.setPreferredSize(new Dimension(1200, 1600)); // Ajuste conforme necessário        
+            painel.setPreferredSize(new Dimension(1200, 1200)); // Ajuste conforme necessário        
             setVisible(true);
         }
     }

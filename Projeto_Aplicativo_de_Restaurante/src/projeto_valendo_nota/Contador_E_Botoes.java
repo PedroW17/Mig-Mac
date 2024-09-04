@@ -65,7 +65,7 @@ public class Contador_E_Botoes implements Pratos
         case 0:
         {
         	Nomes[ID] = "Bruschetta";
-        	Preco[ID] = 49.19f;
+        	Preco[ID] = 50.00f;
         }
         break;
         
@@ -79,7 +79,7 @@ public class Contador_E_Botoes implements Pratos
         case 2:
         {
         	Nomes[ID] = "Bolinho de Pirarucu";
-        	Preco[ID] = 54.99f;
+        	Preco[ID] = 55.00f;
         }
         break;
         
@@ -91,37 +91,37 @@ public class Contador_E_Botoes implements Pratos
         break;
         
         case 4:
-        {
+        { 
         	Nomes[ID] = "Prato 2";
-        	Preco[ID] = 0.00f;
+        	Preco[ID] = 10.00f;
         }
         break;
         
         case 5:
         {
         	Nomes[ID] = "Prato 3";
-        	Preco[ID] = 0.00f;
+        	Preco[ID] = 10.00f;
         }
         break;
         
         case 6:
         {
         	Nomes[ID] = "Tiramisu";
-        	Preco[ID] = 63.49f;
+        	Preco[ID] = 60.00f;
         }
         break;
         
         case 7:
         {
         	Nomes[ID] = "Cheesecake";
-        	Preco[ID] = 47.34f;
+        	Preco[ID] = 47.00f;
         }
         break;
         
         case 8:
         {
         	Nomes[ID] = "Brownie";
-        	Preco[ID] = 47.34f;
+        	Preco[ID] = 47.00f;
         }
         break;
         }
