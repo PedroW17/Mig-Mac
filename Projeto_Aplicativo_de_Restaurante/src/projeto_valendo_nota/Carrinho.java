@@ -4,10 +4,14 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Carrinho implements Pratos {
-    public Carrinho() {
-        String diretorio = "C:\\Users\\tobia\\Desktop"; // Especifique o lugar para colocar o arquivo
-        String nomeArquivo = diretorio + "cardapio.xls"; 
+public class Carrinho implements Pratos{
+	public Carrinho()
+	{
+		CarrinhoFinal();
+	}
+    public void CarrinhoFinal() {
+        String diretorio = "C:\\Users\\ALN\\Documents\\"; // Especifique o lugar para colocar o arquivo
+        String nomeArquivo = diretorio + "Pedido.txt"; 
         StringBuilder conteudo = new StringBuilder(); //armazenar as linhas 
         double totalGeral = 0; 
 

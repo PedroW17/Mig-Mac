@@ -27,7 +27,7 @@ public class Contador_E_Botoes implements Pratos
         
         // Botões pro contador
         JButton BotaoMais = new JButton("+");
-        BotaoMais.setBounds(158, 138, 42, 42);
+        BotaoMais.setBounds(240, 138, 42, 42);
         BotaoMais.setBackground(Color.DARK_GRAY);
         BotaoMais.setForeground(Color.WHITE);
         BotaoMais.setFont(fonte);
@@ -43,7 +43,7 @@ public class Contador_E_Botoes implements Pratos
         		});
         
         JButton BotaoMenos = new JButton("-");
-        BotaoMenos.setBounds(240, 138, 42, 42);
+        BotaoMenos.setBounds(158, 138, 42, 42);
         BotaoMenos.setBackground(Color.DARK_GRAY);
         BotaoMenos.setForeground(Color.WHITE);
         BotaoMenos.setFont(fonte);
@@ -92,14 +92,14 @@ public class Contador_E_Botoes implements Pratos
         
         case 4:
         { 
-        	Nomes[ID] = "Prato 2";
+        	Nomes[ID] = "Risotos de frutos do mar";
         	Preco[ID] = 10.00f;
         }
         break;
         
         case 5:
         {
-        	Nomes[ID] = "Prato 3";
+        	Nomes[ID] = "Medalhão de filé mignon com bacon";
         	Preco[ID] = 10.00f;
         }
         break;

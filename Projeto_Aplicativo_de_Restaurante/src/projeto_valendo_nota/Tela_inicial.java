@@ -10,10 +10,8 @@ public class Tela_inicial {
         	int i = 0;
             // Configurações da Janela
             setUndecorated(true);
-            // setExtendedState(JFrame.MAXIMIZED_BOTH);
             setSize(1280,1080);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            // setResizable(false);
             setLocationRelativeTo(null);
             
             // Criação do painel principal
@@ -65,9 +63,9 @@ public class Tela_inicial {
             };
 
             String[] ingredientes = {
-                "Pão italiano, tomate, alho, manjericão",
-                "Caranguejo, leite de coco, pimentão, farinha de rosca",
-                "Pirarucu, batata, cebola, pimenta"
+                "Pão italiano, Tomate, Alho, Manjericão",
+                "Caranguejo, Leite de coco, Pimentão, Farinha de rosca",
+                "Pirarucu, Batata, Cebola, Pimenta"
             };
 
             int larguraImagem = 150;
@@ -123,14 +121,14 @@ public class Tela_inicial {
 
             String[] nomesPratosPP = {
                 "Ratatouille",
-                "Prato 2",
-                "Prato 3"
+                "Risotos de frutos do mar",
+                "Medalhão de filé mignon com bacon"
             };
 
             String[] ingredientesPP = {
-                "Berinjela, abobrinha, tomate, pimentão",
-                "Ingredientes prato 2",
-                "Ingredientes prato 3"
+                "Berinjela, Abobrinha, Tomate, Pimentão",
+                "Arroz, Frutos do mar variados, Caldo de peixe, Temperos diversos ",
+                "Filé mignon, Bacon, Sal, Pimenta-do-reino, Manteiga"
             };
 
             int larguraImagemPP = 150;
@@ -191,9 +189,9 @@ public class Tela_inicial {
             };
 
             String[] ingredientesS = {
-                "Mascarpone, café, cacau",
-                "Queijo, biscoito, açúcar",
-                "Chocolate, manteiga, nozes"
+                "Mascarpone, Café, Cacau",
+                "Queijo, Biscoito, Açúcar",
+                "Chocolate, Manteiga, Nozes"
             };
 
             int larguraImagemS = 150;
