@@ -22,6 +22,7 @@ public class Carrinho implements Pratos{
                 conteudo.append(Nomes[ID]).append("\t")  // para separar em colunas
                         .append(Quantidade[ID]).append("\t")
                         .append(Preco[ID]).append("\t")
+                        .append(Obs[ID]).append("\t")
                         .append(total).append("\n");
 
                 
@@ -30,6 +31,7 @@ public class Carrinho implements Pratos{
                 System.out.println("Nome: " + Nomes[ID]);
                 System.out.println("Quantidade: " + Quantidade[ID]);
                 System.out.println("Preço: " + Preco[ID]);
+                System.out.println("Observação: " + Obs[ID]);
                 System.out.println("Total: " + total);
             }
         }

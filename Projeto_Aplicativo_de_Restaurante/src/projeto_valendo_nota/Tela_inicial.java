@@ -21,6 +21,7 @@ public class Tela_inicial {
 
             // Adiciona o painel principal a um JScrollPane
             JScrollPane scrollPane = new JScrollPane(painel);
+            scrollPane.getVerticalScrollBar().setUnitIncrement(10);
             add(scrollPane);
 
             // Título "MigMac"
@@ -97,7 +98,7 @@ public class Tela_inicial {
 
                 // Adicionando os ingredientes
                 JLabel listaIngredientes = new JLabel("<html>" + ingredientes[i].replace(", ", "<br>") + "</html>");
-                listaIngredientes.setBounds(larguraImagem + 10, 40, 150, 100);
+                listaIngredientes.setBounds(larguraImagem + 10, 20, 150, 100);
                 Font fonteIngredientes = new Font("Serif", Font.PLAIN, 12);
                 listaIngredientes.setFont(fonteIngredientes);
                 painelEntrada.add(listaIngredientes);
@@ -160,7 +161,7 @@ public class Tela_inicial {
 
                 // Adicionando os ingredientes
                 JLabel listaIngredientesPP = new JLabel("<html>" + ingredientesPP[i].replace(", ", "<br>") + "</html>");
-                listaIngredientesPP.setBounds(larguraImagemPP + 10, 40, 150, 100);
+                listaIngredientesPP.setBounds(larguraImagemPP + 10, 20, 150, 100);
                 Font fonteIngredientesPP = new Font("Serif", Font.PLAIN, 12);
                 listaIngredientesPP.setFont(fonteIngredientesPP);
                 painelPrincipal.add(listaIngredientesPP);
@@ -223,7 +224,7 @@ public class Tela_inicial {
 
                 // Adicionando os ingredientes
                 JLabel listaIngredientesS = new JLabel("<html>" + ingredientesS[i].replace(", ", "<br>") + "</html>");
-                listaIngredientesS.setBounds(larguraImagemS + 10, 40, 150, 100);
+                listaIngredientesS.setBounds(larguraImagemS + 10, 20, 150, 100);
                 Font fonteIngredientesS = new Font("Serif", Font.PLAIN, 12);
                 listaIngredientesS.setFont(fonteIngredientesS);
                 painelSobremesa.add(listaIngredientesS);

@@ -21,13 +21,13 @@ public class Contador_E_Botoes implements Pratos
 		
 		// Contador de Quantidade
         JLabel contador = new JLabel(String.valueOf(0));
-        contador.setBounds(220, 135, 50, 50);
+        contador.setBounds(220, 117, 50, 50);
         contador.setFont(fonte);
         painel.add(contador);
         
         // Botões pro contador
         JButton BotaoMais = new JButton("+");
-        BotaoMais.setBounds(240, 138, 42, 42);
+        BotaoMais.setBounds(240, 120, 42, 42);
         BotaoMais.setBackground(Color.DARK_GRAY);
         BotaoMais.setForeground(Color.WHITE);
         BotaoMais.setFont(fonte);
@@ -43,7 +43,7 @@ public class Contador_E_Botoes implements Pratos
         		});
         
         JButton BotaoMenos = new JButton("-");
-        BotaoMenos.setBounds(158, 138, 42, 42);
+        BotaoMenos.setBounds(158, 120, 42, 42);
         BotaoMenos.setBackground(Color.DARK_GRAY);
         BotaoMenos.setForeground(Color.WHITE);
         BotaoMenos.setFont(fonte);
@@ -60,6 +60,12 @@ public class Contador_E_Botoes implements Pratos
         		}
         	}
         		});
+        
+        JTextField Observacao = new JTextField();
+        Observacao.setBounds(1, 175, 300, 20);
+        painel.add(Observacao);
+        Obs[ID] = String.valueOf(Observacao.getText());
+        
         switch(ID)
         {
         case 0:
