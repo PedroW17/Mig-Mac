@@ -4,9 +4,10 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Tela_inicial {
-
     public class Janela extends JFrame {
-        public Janela() {
+        int Mesa;
+		public Janela(int mesa) {
+        	this.Mesa = mesa;
         	int i = 0;
             // Configurações da Janela
             setUndecorated(true);
@@ -104,7 +105,7 @@ public class Tela_inicial {
                 painelEntrada.add(listaIngredientes);
                 
                 // Contador de Quantidade
-                new Contador_E_Botoes(painelEntrada, i);
+                new Contador_E_Botoes(painelEntrada, i, Mesa);
             }
 
             // Título "PRATO PRINCIPAL"
@@ -167,7 +168,7 @@ public class Tela_inicial {
                 painelPrincipal.add(listaIngredientesPP);
                 
                 // Contador de Quantidade
-                new Contador_E_Botoes(painelPrincipal, i+3);
+                new Contador_E_Botoes(painelPrincipal, i+3, Mesa);
             }
 
             // Título "SOBREMESA"
@@ -230,7 +231,7 @@ public class Tela_inicial {
                 painelSobremesa.add(listaIngredientesS);
                 
                 // Contador de Quantidade
-                new Contador_E_Botoes(painelSobremesa, i+6);
+                new Contador_E_Botoes(painelSobremesa, i+6, Mesa);
             }
             
 
@@ -238,9 +239,5 @@ public class Tela_inicial {
             painel.setPreferredSize(new Dimension(1200, 1200)); // Ajuste conforme necessário        
             setVisible(true);
         }
-    }
-
-    public static void main(String[] args) {
-        new Tela_inicial().new Janela();
     }
 }

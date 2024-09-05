@@ -9,7 +9,7 @@ public class Contador_E_Botoes implements Pratos
 	private JPanel painel;
 	public int Contador = 0;
 	
-	public Contador_E_Botoes(JPanel painel, int i)
+	public Contador_E_Botoes(JPanel painel, int i, int mesa)
 	{
 		int ID = i;
 		
