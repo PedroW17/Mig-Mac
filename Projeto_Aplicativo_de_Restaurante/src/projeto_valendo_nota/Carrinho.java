@@ -5,33 +5,36 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Carrinho implements Pratos{
-	public Carrinho()
+	int Mesa;
+	public Carrinho(int mesa)
 	{
-		CarrinhoFinal();
+		this.Mesa = mesa;
+		CarrinhoFinal(Mesa);
 	}
-    public void CarrinhoFinal() {
+    public void CarrinhoFinal(int mesa) {
+    	this.Mesa = mesa;
         String diretorio = "C:\\Users\\ALN\\Documents\\"; // Especifique o lugar para colocar o arquivo
         String nomeArquivo = diretorio + "Pedido.txt"; 
         StringBuilder conteudo = new StringBuilder(); //armazenar as linhas 
         double totalGeral = 0; 
 
         for (int ID = 0; ID <= 8; ID++) {
-            double total = Quantidade[ID] * Preco[ID];
+            double total = Quantidade[ID][Mesa] * Preco[ID][Mesa];
             
             if (total > 0) {
-                conteudo.append(Nomes[ID]).append("\t")  // para separar em colunas
-                        .append(Quantidade[ID]).append("\t")
-                        .append(Preco[ID]).append("\t")
-                        .append(Obs[ID]).append("\t")
+                conteudo.append(Nomes[ID][Mesa]).append("\t")  // para separar em colunas
+                        .append(Quantidade[ID][Mesa]).append("\t")
+                        .append(Preco[ID][Mesa]).append("\t")
+                        .append(Obs[ID][Mesa]).append("\t")
                         .append(total).append("\n");
 
                 
                 totalGeral += total;
                 
-                System.out.println("Nome: " + Nomes[ID]);
-                System.out.println("Quantidade: " + Quantidade[ID]);
-                System.out.println("Preço: " + Preco[ID]);
-                System.out.println("Observação: " + Obs[ID]);
+                System.out.println("Nome: " + Nomes[ID][Mesa]);
+                System.out.println("Quantidade: " + Quantidade[ID][Mesa]);
+                System.out.println("Preço: " + Preco[ID][Mesa]);
+                System.out.println("Observação: " + Obs[ID][Mesa]);
                 System.out.println("Total: " + total);
             }
         }

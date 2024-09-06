@@ -47,7 +47,7 @@ public class Tela_inicial {
             		{
             	public void actionPerformed(ActionEvent e)
             	{
-            		new Carrinho();
+            		new Carrinho(Mesa);
             	}
             		});
             

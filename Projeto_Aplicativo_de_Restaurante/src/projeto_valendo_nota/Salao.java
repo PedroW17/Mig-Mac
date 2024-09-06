@@ -42,7 +42,7 @@ public class Salao extends JFrame
             		{
             	public void actionPerformed(ActionEvent e)
             	{
-            		int mesa = i+1;
+            		int mesa = i;
             		new Tela_inicial().new Janela(mesa);
             	}
             		});
