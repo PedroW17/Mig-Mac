@@ -8,6 +8,7 @@ public class Tela_inicial {
         int Mesa;
 		public Janela(int mesa) {
         	this.Mesa = mesa;
+        	Mesa = Mesa-1;
         	int i = 0;
             // Configurações da Janela
             setUndecorated(true);

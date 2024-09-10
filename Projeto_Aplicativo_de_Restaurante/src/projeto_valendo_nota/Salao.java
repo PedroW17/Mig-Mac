@@ -40,10 +40,11 @@ public class Salao extends JFrame
             painel.add(Mesa);
             Mesa.addActionListener(new ActionListener()
             		{
+            	@Override
             	public void actionPerformed(ActionEvent e)
             	{
-            		int mesa = i;
-            		new Tela_inicial().new Janela(mesa);
+            		String mesa = e.getActionCommand();
+            		new Tela_inicial().new Janela(Integer.valueOf(mesa));
             	}
             		});
         }
