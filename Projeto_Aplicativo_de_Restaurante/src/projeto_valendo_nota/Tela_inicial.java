@@ -40,6 +40,18 @@ public class Tela_inicial {
             Font fonteEntradas = new Font("Serif", Font.BOLD, 20);
             Entradas.setFont(fonteEntradas);    
             
+            //Comanda
+            JButton Comanda = new JButton ("Comanda");
+            Comanda.setBounds(150,10,100,100);
+            painel.add(Comanda);
+            
+            
+            
+            
+            
+            
+            
+            
             //Carrinho
             JButton carrinho = new JButton("Carrinho");
             carrinho.setBounds(10, 10, 100, 100);
@@ -48,7 +60,7 @@ public class Tela_inicial {
             		{
             	public void actionPerformed(ActionEvent e)
             	{
-            		new Carrinho(Mesa);
+            		new Carrinho_Tela().new Janela_Carrinho(Mesa);
             	}
             		});
             

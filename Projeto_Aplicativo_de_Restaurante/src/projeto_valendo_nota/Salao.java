@@ -38,6 +38,8 @@ public class Salao extends JFrame
             Mesa.setLayout(null);
             Mesa.setBounds(xPos, yPos, 100, 100);
             painel.add(Mesa);
+            Mesa.setBackground(Color.white);
+            Mesa.setForeground(Color.black);
             Mesa.addActionListener(new ActionListener()
             		{
             	@Override
