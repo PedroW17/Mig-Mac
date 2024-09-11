@@ -67,7 +67,6 @@ public class Contador_E_Botoes implements Pratos
         Observacao.setBounds(10, 175, 300, 20);
         painel.add(Observacao);
         
-        
         switch(ID)
         {
         case 0:
@@ -135,6 +134,30 @@ public class Contador_E_Botoes implements Pratos
         break;
         
         case 8:
+        {
+        	Nomes[ID][Mesa] = "Brownie";
+        	Preco[ID][Mesa] = 47.00f;
+        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
+        }
+        break;
+        
+        case 9:
+        {
+        	Nomes[ID][Mesa] = "Brownie";
+        	Preco[ID][Mesa] = 47.00f;
+        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
+        }
+        break;
+        
+        case 10:
+        {
+        	Nomes[ID][Mesa] = "Brownie";
+        	Preco[ID][Mesa] = 47.00f;
+        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
+        }
+        break;
+        
+        case 11:
         {
         	Nomes[ID][Mesa] = "Brownie";
         	Preco[ID][Mesa] = 47.00f;

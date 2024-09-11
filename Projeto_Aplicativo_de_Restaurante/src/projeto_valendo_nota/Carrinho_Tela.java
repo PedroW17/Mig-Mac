@@ -105,7 +105,7 @@ public class Carrinho_Tela implements Pratos {
                     System.out.println("Preço: " + Preco[ID][Mesa]);
                     System.out.println("Observação: " + Obs[ID][Mesa]);
                     System.out.println("Total: " + total);
-                }
+                    System.out.println(Mesa+1);                }
             }
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, true))) {
