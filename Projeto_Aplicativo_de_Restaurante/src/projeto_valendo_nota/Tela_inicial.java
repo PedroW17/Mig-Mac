@@ -32,13 +32,6 @@ public class Tela_inicial {
             MigMac.setBounds(545, 5, 300, 100);
             Font fonteMigMac = new Font("Serif", Font.BOLD, 48);
             MigMac.setFont(fonteMigMac);
-
-            // Título "ENTRADAS"
-            JLabel Entradas = new JLabel("ENTRADAS");
-            painel.add(Entradas);
-            Entradas.setBounds(100, 100, 300, 100);
-            Font fonteEntradas = new Font("Serif", Font.BOLD, 20);
-            Entradas.setFont(fonteEntradas);    
             
             //Comanda
             JButton Comanda = new JButton ("Comanda");
@@ -63,6 +56,13 @@ public class Tela_inicial {
             		new Carrinho_Tela().new Janela_Carrinho(Mesa);
             	}
             		});
+            
+            // Título "ENTRADAS"
+            JLabel Entradas = new JLabel("ENTRADAS");
+            painel.add(Entradas);
+            Entradas.setBounds(100, 100, 300, 100);
+            Font fonteEntradas = new Font("Serif", Font.BOLD, 20);
+            Entradas.setFont(fonteEntradas); 
             
             // Configurações das entradas
             String[] caminhosImagens = {
@@ -93,7 +93,7 @@ public class Tela_inicial {
                 // Criando o painel para cada entrada
                 JPanel painelEntrada = new JPanel();
                 painelEntrada.setLayout(null);
-                painelEntrada.setBounds(posicaoInicialX + i * (larguraImagem + espacamento), posicaoY, 300, 200);
+                painelEntrada.setBounds(posicaoInicialX + i * (larguraImagem + espacamento), posicaoY, 320, 200);
                 painel.add(painelEntrada);
 
                 // Adicionando a imagem
@@ -124,7 +124,7 @@ public class Tela_inicial {
             // Título "PRATO PRINCIPAL"
             JLabel PratoPrincipal = new JLabel("PRATO PRINCIPAL");
             painel.add(PratoPrincipal);
-            PratoPrincipal.setBounds(120, 450, 300, 100);
+            PratoPrincipal.setBounds(100, 450, 300, 100);
             PratoPrincipal.setFont(fonteEntradas);
 
             // Configurações dos pratos principais
@@ -137,7 +137,7 @@ public class Tela_inicial {
             String[] nomesPratosPP = {
                 "Ratatouille",
                 "Risotos de frutos do mar",
-                "Medalhão de filé mignon com bacon"
+                "Medalhão de filé mignon"
             };
 
             String[] ingredientesPP = {
@@ -156,7 +156,7 @@ public class Tela_inicial {
                 // Criando o painel para cada prato principal
                 JPanel painelPrincipal = new JPanel();
                 painelPrincipal.setLayout(null);
-                painelPrincipal.setBounds(posicaoInicialXPP + i * (larguraImagemPP + espacamentoPP), posicaoYPP, 300, 200);
+                painelPrincipal.setBounds(posicaoInicialXPP + i * (larguraImagemPP + espacamentoPP), posicaoYPP, 320, 200);
                 painel.add(painelPrincipal);
 
                 // Adicionando a imagem
@@ -168,7 +168,7 @@ public class Tela_inicial {
 
                 // Adicionando o nome do prato
                 JLabel nomePratoPP = new JLabel(nomesPratosPP[i]);
-                nomePratoPP.setBounds(larguraImagemPP + 10, 0, 150, 30);
+                nomePratoPP.setBounds(larguraImagemPP + 10, 0, 160, 30);
                 Font fonteNomePratoPP = new Font("Serif", Font.BOLD, 14);
                 nomePratoPP.setFont(fonteNomePratoPP);
                 painelPrincipal.add(nomePratoPP);
@@ -219,7 +219,7 @@ public class Tela_inicial {
                 // Criando o painel para cada sobremesa
                 JPanel painelSobremesa = new JPanel();
                 painelSobremesa.setLayout(null);
-                painelSobremesa.setBounds(posicaoInicialXS + i * (larguraImagemS + espacamentoS), posicaoYS, 300, 200);
+                painelSobremesa.setBounds(posicaoInicialXS + i * (larguraImagemS + espacamentoS), posicaoYS, 320, 200);
                 painel.add(painelSobremesa);
 
                 // Adicionando a imagem
@@ -241,15 +241,78 @@ public class Tela_inicial {
                 listaIngredientesS.setBounds(larguraImagemS + 10, 20, 150, 100);
                 Font fonteIngredientesS = new Font("Serif", Font.PLAIN, 12);
                 listaIngredientesS.setFont(fonteIngredientesS);
-                painelSobremesa.add(listaIngredientesS);
+                painelSobremesa.add(listaIngredientesS); 
                 
                 // Contador de Quantidade
                 new Contador_E_Botoes(painelSobremesa, i+6, Mesa);
             }
             
+             // Título "SOBREMESA"
+            JLabel Bebidas = new JLabel("BEBIDAS");
+            painel.add(Bebidas);
+            Bebidas.setBounds(100, 1150, 300, 100);
+            Bebidas.setFont(fonteEntradas);
+            
+            // Configurações das sobremesas
+            String[] caminhosImagensB = 
+            	{
+                "",
+                "",
+                ""
+                };
+
+            String[] nomesBebidas = {
+                "Água",
+                "Refrigerante",
+                "Sucos"
+            };
+            
+            String[] sabores = {
+                    "Com gás, sem gás",
+                    "Coca-cola, Guaraná, Fanta Uva, Sprite",
+                    "Maracujá, Laranja, Manga, Goiaba"
+                };
+            
+            int larguraImagemB = 150;
+            int alturaImagemB = 150;
+            int espacamentoB = 250;
+            int posicaoInicialXB = 100;
+            int posicaoYB = 1250;
+            
+            for (i = 0; i < caminhosImagensB.length; i++) {
+                // Criando o painel para cada sobremesa
+                JPanel painelBebidas = new JPanel();
+                painelBebidas.setLayout(null);
+                painelBebidas.setBounds(posicaoInicialXB + i * (larguraImagemB + espacamentoB), posicaoYB, 320, 200);
+                painel.add(painelBebidas);
+
+                // Adicionando a imagem
+                JLabel imagemB = new JLabel();
+                imagemB.setBounds(0, 0, larguraImagemB, alturaImagemB);
+                ImageIcon iconeB = new ImageIcon(new ImageIcon(caminhosImagensB[i]).getImage().getScaledInstance(larguraImagemB, alturaImagemB, Image.SCALE_SMOOTH));
+                imagemB.setIcon(iconeB);
+                painelBebidas.add(imagemB);
+
+                // Adicionando o nome do prato
+                JLabel nomeBebida = new JLabel(nomesBebidas[i]);
+                nomeBebida.setBounds(larguraImagemB + 10, 0, 150, 30);
+                Font fonteNomeBebidas = new Font("Serif", Font.BOLD, 14);
+                nomeBebida.setFont(fonteNomeBebidas);
+                painelBebidas.add(nomeBebida);
+
+                // Adicionando os ingredientes
+                JLabel listaSabores = new JLabel("<html>" + sabores[i].replace(", ", "<br>") + "</html>");
+                listaSabores.setBounds(larguraImagemB + 10, 20, 150, 100);
+                Font fonteSabores = new Font("Serif", Font.PLAIN, 12);
+                listaSabores.setFont(fonteSabores);
+                painelBebidas.add(listaSabores); 
+                
+                // Contador de Quantidade
+                new Contador_E_Botoes(painelBebidas, i+6, Mesa);
+            } 
 
             // Ajusta o tamanho do painel principal para o tamanho necessário
-            painel.setPreferredSize(new Dimension(1200, 1200)); // Ajuste conforme necessário        
+            painel.setPreferredSize(new Dimension(1200, 1600)); // Ajuste conforme necessário        
             setVisible(true);
         }
     }

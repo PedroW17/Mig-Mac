@@ -64,7 +64,7 @@ public class Contador_E_Botoes implements Pratos
         		});
         
         JTextField Observacao = new JTextField();
-        Observacao.setBounds(1, 175, 300, 20);
+        Observacao.setBounds(10, 175, 300, 20);
         painel.add(Observacao);
         
         
