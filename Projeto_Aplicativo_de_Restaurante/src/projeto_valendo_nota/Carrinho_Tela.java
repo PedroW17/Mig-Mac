@@ -14,7 +14,7 @@ public class Carrinho_Tela implements Pratos {
         public Janela_Carrinho(int mesa) {
             // Configurações da Janela
             setUndecorated(true);
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Alterado para DISPONE_ON_CLOSE
             setSize(1280, 1080);
             setLocationRelativeTo(null);
 
@@ -37,14 +37,20 @@ public class Carrinho_Tela implements Pratos {
             BotaoVoltar.setBackground(Color.DARK_GRAY);
             BotaoVoltar.setForeground(Color.WHITE);
             painel.add(BotaoVoltar);
+            BotaoVoltar.addActionListener(e -> {
+                dispose(); // Fecha a janela atual
+                // Se você deseja voltar para uma tela anterior específica, adicione o código para exibi-la aqui
+                // new TelaPrincipal().setVisible(true); // Exemplo: Substitua TelaPrincipal pela tela desejada
+            });
 
             // Visor para exibição dos resultados
             JTextArea visor = new JTextArea();
             visor.setBounds(100, 130, 1080, 750);
             visor.setBackground(Color.white);
             visor.setEditable(false);
-            Font font = new Font("SansSerif", Font.PLAIN, 24);
+            Font font = new Font("SansSerif", Font.PLAIN, 18);
             visor.setFont(font);
+            visor.setBorder(BorderFactory.createLineBorder(Color.BLACK));
             painel.add(visor);
 
             // Adicionando o rótulo para formas de pagamento
@@ -88,44 +94,34 @@ public class Carrinho_Tela implements Pratos {
             StringBuilder conteudo = new StringBuilder(); // Armazenar as linhas
             double totalGeral = 0;
 
+            // Formatação do texto para exibição e escrita no arquivo
+            String formatHeader = "%-30s %-10s %-10s %-20s %10s\n";
+            String formatRow = "%-30s %-10d %-10.2f %-20s %10.2f\n";
+            conteudo.append(String.format(formatHeader, "Nome", "Qtd", "Preço", "Observação", "Total"));
             for (int ID = 0; ID <= 8; ID++) {
                 double total = Quantidade[ID][Mesa] * Preco[ID][Mesa];
 
                 if (total > 0) {
-                    conteudo.append(Nomes[ID][Mesa]).append("\t")  // Para separar em colunas
-                            .append(Quantidade[ID][Mesa]).append("\t")
-                            .append(Preco[ID][Mesa]).append("\t")
-                            .append(Obs[ID][Mesa]).append("\t")
-                            .append(total).append("\n");
+                    conteudo.append(String.format(formatRow,
+                            Nomes[ID][Mesa],
+                            Quantidade[ID][Mesa],
+                            Preco[ID][Mesa],
+                            Obs[ID][Mesa],
+                            total));
 
                     totalGeral += total;
-
-                    System.out.println("Nome: " + Nomes[ID][Mesa]);
-                    System.out.println("Quantidade: " + Quantidade[ID][Mesa]);
-                    System.out.println("Preço: " + Preco[ID][Mesa]);
-                    System.out.println("Observação: " + Obs[ID][Mesa]);
-                    System.out.println("Total: " + total);
-                    System.out.println(Mesa+1);                }
+                }
             }
+            conteudo.append(String.format("\n%-50s %10.2f", "Total Geral", totalGeral));
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, true))) {
-                // Cabeçalho da saída
-                writer.write("Nome\tQuantidade\tPreço\tObservação\tTotal");
-                writer.newLine();
-
-                // Escreve o conteúdo gerado no arquivo
                 writer.write(conteudo.toString());
-                // Escreve o total do preço
-                writer.write("\nTotal Geral\t\t\t\t" + totalGeral);
-                System.out.println("Total Geral: " + totalGeral);
-                System.out.println("Arquivo criado com sucesso!");
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
             // Exibe o total no visor
-            visor.setText(conteudo.toString() + "\nTotal Geral\t\t\t\t" + totalGeral);
+            visor.setText(conteudo.toString());
 
             setVisible(true);
         }

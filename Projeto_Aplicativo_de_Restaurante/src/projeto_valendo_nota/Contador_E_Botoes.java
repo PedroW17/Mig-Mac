@@ -71,7 +71,7 @@ public class Contador_E_Botoes implements Pratos
         {
         case 0:
         {
-        	Nomes[ID][Mesa] = "Bruschetta";
+        	Nomes[ID][Mesa] = "Bruschetta               ";
         	Preco[ID][Mesa] = 50.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -79,7 +79,7 @@ public class Contador_E_Botoes implements Pratos
         
         case 1:
         {
-        	Nomes[ID][Mesa] = "Casca de Caranguejo";
+        	Nomes[ID][Mesa] = "Casca de Caranguejo      ";
         	Preco[ID][Mesa] = 75.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -87,7 +87,7 @@ public class Contador_E_Botoes implements Pratos
         
         case 2:
         {
-        	Nomes[ID][Mesa] = "Bolinho de Pirarucu";
+        	Nomes[ID][Mesa] = "Bolinho de Pirarucu      ";
         	Preco[ID][Mesa] = 55.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -95,7 +95,7 @@ public class Contador_E_Botoes implements Pratos
         
         case 3:
         {
-        	Nomes[ID][Mesa]= "Ratatouille";
+        	Nomes[ID][Mesa]= "Ratatouille                ";
         	Preco[ID][Mesa] = 180.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -103,7 +103,7 @@ public class Contador_E_Botoes implements Pratos
         
         case 4:
         { 
-        	Nomes[ID][Mesa] = "Risotos de frutos do mar";
+        	Nomes[ID][Mesa] = "Risotos de frutos do mar ";
         	Preco[ID][Mesa] = 10.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -111,15 +111,15 @@ public class Contador_E_Botoes implements Pratos
         
         case 5:
         {
-        	Nomes[ID][Mesa] = "Medalhão de filé mignon com bacon";
+        	Nomes[ID][Mesa] = "Medalhão de filé mignon   ";
         	Preco[ID][Mesa] = 10.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
         case 6:
-        {
-        	Nomes[ID][Mesa] = "Tiramisu";
+        { 
+        	Nomes[ID][Mesa] = "Tiramisu                   ";
         	Preco[ID][Mesa] = 60.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -127,7 +127,7 @@ public class Contador_E_Botoes implements Pratos
         
         case 7:
         {
-        	Nomes[ID][Mesa] = "Cheesecake";
+        	Nomes[ID][Mesa] = "Cheesecake                  ";
         	Preco[ID][Mesa] = 47.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -135,7 +135,7 @@ public class Contador_E_Botoes implements Pratos
         
         case 8:
         {
-        	Nomes[ID][Mesa] = "Brownie";
+        	Nomes[ID][Mesa] = "Brownie                     ";
         	Preco[ID][Mesa] = 47.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -143,7 +143,7 @@ public class Contador_E_Botoes implements Pratos
         
         case 9:
         {
-        	Nomes[ID][Mesa] = "Brownie";
+        	Nomes[ID][Mesa] = "Brownie                      ";
         	Preco[ID][Mesa] = 47.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -151,7 +151,7 @@ public class Contador_E_Botoes implements Pratos
         
         case 10:
         {
-        	Nomes[ID][Mesa] = "Brownie";
+        	Nomes[ID][Mesa] = "Brownie                      ";
         	Preco[ID][Mesa] = 47.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
@@ -159,7 +159,7 @@ public class Contador_E_Botoes implements Pratos
         
         case 11:
         {
-        	Nomes[ID][Mesa] = "Brownie";
+        	Nomes[ID][Mesa] = "Brownie                       ";
         	Preco[ID][Mesa] = 47.00f;
         	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
