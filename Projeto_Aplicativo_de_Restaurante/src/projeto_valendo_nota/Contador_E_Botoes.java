@@ -2,6 +2,7 @@ package projeto_valendo_nota;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.event.*;
 
 public class Contador_E_Botoes implements Pratos
 {
@@ -26,6 +27,36 @@ public class Contador_E_Botoes implements Pratos
         contador.setBounds(220, 117, 50, 50);
         contador.setFont(fonte);
         painel.add(contador);
+        
+        JTextField Observacao = new JTextField();
+        Observacao.setBounds(10, 175, 300, 20);
+        painel.add(Observacao);
+        Observacao.getDocument().addDocumentListener(new DocumentListener()
+        		{
+        	@Override 
+        	public void insertUpdate(DocumentEvent e)
+        	{
+        		atObs();
+        	}
+        	
+        	@Override 
+        	public void removeUpdate(DocumentEvent e)
+        	{
+        		atObs();
+        	}
+        	
+        	@Override
+        	public void changedUpdate(DocumentEvent e)
+        	{
+        		atObs();
+        	}
+        	
+        	public void atObs()
+        	{
+        		
+        		Obs[ID][Mesa] = Observacao.getText();
+        	}
+        		});
         
         // Botões pro contador
         JButton BotaoMais = new JButton("+");
@@ -63,17 +94,12 @@ public class Contador_E_Botoes implements Pratos
         	}
         		});
         
-        JTextField Observacao = new JTextField();
-        Observacao.setBounds(10, 175, 300, 20);
-        painel.add(Observacao);
-        
-        switch(ID)
+       switch(ID)
         {
         case 0:
         {
         	Nomes[ID][Mesa] = "Bruschetta               ";
         	Preco[ID][Mesa] = 50.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
@@ -81,7 +107,6 @@ public class Contador_E_Botoes implements Pratos
         {
         	Nomes[ID][Mesa] = "Casca de Caranguejo      ";
         	Preco[ID][Mesa] = 75.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
@@ -89,7 +114,6 @@ public class Contador_E_Botoes implements Pratos
         {
         	Nomes[ID][Mesa] = "Bolinho de Pirarucu      ";
         	Preco[ID][Mesa] = 55.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
@@ -97,7 +121,6 @@ public class Contador_E_Botoes implements Pratos
         {
         	Nomes[ID][Mesa]= "Ratatouille                ";
         	Preco[ID][Mesa] = 180.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
@@ -105,7 +128,6 @@ public class Contador_E_Botoes implements Pratos
         { 
         	Nomes[ID][Mesa] = "Risotos de frutos do mar ";
         	Preco[ID][Mesa] = 10.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
@@ -113,7 +135,6 @@ public class Contador_E_Botoes implements Pratos
         {
         	Nomes[ID][Mesa] = "Medalhão de filé mignon   ";
         	Preco[ID][Mesa] = 10.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
@@ -121,7 +142,6 @@ public class Contador_E_Botoes implements Pratos
         { 
         	Nomes[ID][Mesa] = "Tiramisu                   ";
         	Preco[ID][Mesa] = 60.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
@@ -129,7 +149,6 @@ public class Contador_E_Botoes implements Pratos
         {
         	Nomes[ID][Mesa] = "Cheesecake                  ";
         	Preco[ID][Mesa] = 47.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
@@ -137,31 +156,27 @@ public class Contador_E_Botoes implements Pratos
         {
         	Nomes[ID][Mesa] = "Brownie                     ";
         	Preco[ID][Mesa] = 47.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
         }
         break;
         
         case 9:
         {
-        	Nomes[ID][Mesa] = "Brownie                      ";
-        	Preco[ID][Mesa] = 47.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
+        	Nomes[ID][Mesa] = "Água                      ";
+        	Preco[ID][Mesa] = 6.00f;
         }
         break;
         
         case 10:
         {
-        	Nomes[ID][Mesa] = "Brownie                      ";
-        	Preco[ID][Mesa] = 47.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
+        	Nomes[ID][Mesa] = "Refrigerante                      ";
+        	Preco[ID][Mesa] = 9.00f;
         }
         break;
         
         case 11:
         {
-        	Nomes[ID][Mesa] = "Brownie                       ";
-        	Preco[ID][Mesa] = 47.00f;
-        	Obs[ID][Mesa] = String.valueOf(Observacao.getText());
+        	Nomes[ID][Mesa] = "Suco                       ";
+        	Preco[ID][Mesa] = 12.00f;
         }
         break;
         }

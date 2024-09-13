@@ -11,12 +11,22 @@ import java.awt.Graphics2D;
 import java.awt.geom.RoundRectangle2D;
 
 public class Salao extends JFrame {
+	private static Salao instance;
+	
+	public static Salao getInstance()
+	{
+		if(instance == null)
+		{
+			instance = new Salao();
+		}
+		return instance;
+	}
 
     public Salao() {
         // Configurações da Janela
         setSize(880, 1080);
         setUndecorated(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         // Criação do painel principal
@@ -71,6 +81,7 @@ public class Salao extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     String mesa = e.getActionCommand();
                     new Tela_inicial().new Janela(Integer.valueOf(mesa));
+                    dispose();
                 }
             });
 

@@ -97,11 +97,16 @@ public class Carrinho_Tela implements Pratos {
             // Formatação do texto para exibição e escrita no arquivo
             String formatHeader = "%-30s %-10s %-10s %-20s %10s\n";
             String formatRow = "%-30s %-10d %-10.2f %-20s %10.2f\n";
-            conteudo.append(String.format(formatHeader, "Nome", "Qtd", "Preço", "Observação", "Total"));
-            for (int ID = 0; ID <= 8; ID++) {
+            conteudo.append(String.format(formatHeader, ("Mesa: " + (Mesa+1)),"Nome", "Qtd", "Preço", "Observação", "Total"));
+            for (int ID = 0; ID <= 11; ID++) {
                 double total = Quantidade[ID][Mesa] * Preco[ID][Mesa];
 
                 if (total > 0) {
+                	if(Obs[ID][Mesa] == null)
+                	{
+                		Obs[ID][Mesa] = "";
+                	}
+                	else {}
                     conteudo.append(String.format(formatRow,
                             Nomes[ID][Mesa],
                             Quantidade[ID][Mesa],

@@ -32,18 +32,19 @@ public class Tela_inicial {
             MigMac.setBounds(545, 5, 300, 100);
             Font fonteMigMac = new Font("Serif", Font.BOLD, 48);
             MigMac.setFont(fonteMigMac);
-            
-            //Comanda
-            JButton Comanda = new JButton ("Comanda");
-            Comanda.setBounds(150,10,100,100);
-            painel.add(Comanda);
-            
-            
-            
-            
-            
-            
-            
+                        
+            //Voltar
+            JButton Voltar = new JButton ("Voltar");
+            Voltar.setBounds(1120,10,100,100);
+            painel.add(Voltar);
+            Voltar.addActionListener(new ActionListener()
+            		{
+            	public void actionPerformed(ActionEvent e)
+            	{
+            		dispose();
+            		Salao.getInstance().setVisible(true);
+            	}
+            		});
             
             //Carrinho
             JButton carrinho = new JButton("Carrinho");
@@ -54,6 +55,7 @@ public class Tela_inicial {
             	public void actionPerformed(ActionEvent e)
             	{
             		new Carrinho_Tela().new Janela_Carrinho(Mesa);
+            		
             	}
             		});
             
@@ -264,7 +266,7 @@ public class Tela_inicial {
             String[] nomesBebidas = {
                 "Água",
                 "Refrigerante",
-                "Sucos"
+                "Suco"
             };
             
             String[] sabores = {
@@ -308,7 +310,7 @@ public class Tela_inicial {
                 painelBebidas.add(listaSabores); 
                 
                 // Contador de Quantidade
-                new Contador_E_Botoes(painelBebidas, i+6, Mesa);
+                new Contador_E_Botoes(painelBebidas, i+9, Mesa);
             } 
 
             // Ajusta o tamanho do painel principal para o tamanho necessário
