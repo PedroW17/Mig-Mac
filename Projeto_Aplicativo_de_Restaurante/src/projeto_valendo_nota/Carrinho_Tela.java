@@ -14,7 +14,7 @@ public class Carrinho_Tela implements Pratos {
         public Janela_Carrinho(int mesa) {
             // Configurações da Janela
             setUndecorated(true);
-            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Alterado para DISPONE_ON_CLOSE
+            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             setSize(1280, 1080);
             setLocationRelativeTo(null);
 
@@ -39,8 +39,6 @@ public class Carrinho_Tela implements Pratos {
             painel.add(BotaoVoltar);
             BotaoVoltar.addActionListener(e -> {
                 dispose(); // Fecha a janela atual
-                // Se você deseja voltar para uma tela anterior específica, adicione o código para exibi-la aqui
-                // new TelaPrincipal().setVisible(true); // Exemplo: Substitua TelaPrincipal pela tela desejada
             });
 
             // Visor para exibição dos resultados
@@ -81,6 +79,42 @@ public class Carrinho_Tela implements Pratos {
                             JOptionPane.YES_NO_OPTION,
                             JOptionPane.QUESTION_MESSAGE);
                     if (resposta == JOptionPane.YES_OPTION) {
+                        // Gera o arquivo ao confirmar o pagamento
+                        String diretorio = "C:\\Users\\ALN\\Documents\\"; // Especifique o lugar para colocar o arquivo
+                        String nomeArquivo = diretorio + "Pedido.txt";
+                        StringBuilder conteudo = new StringBuilder(); // Armazenar as linhas
+                        double totalGeral = 0;
+
+                        // Formatação do texto para exibição e escrita no arquivo
+                        String formatHeader = "%-30s %-10s %-10s %-20s\n"; // Ajustei para alinhar melhor as colunas
+                        String formatRow = "%-30s %-10d %-10.2f %-20s\n";  // Ajustei para incluir espaçamento mais uniforme
+                        conteudo.append(String.format(formatHeader, "Nome", "Qtd", "Preço", "Observação"));
+
+                        for (int ID = 0; ID <= 11; ID++) {
+                            double total = Quantidade[ID][Mesa] * Preco[ID][Mesa];
+
+                            if (total > 0) {
+                                if (Obs[ID][Mesa] == null) {
+                                    Obs[ID][Mesa] = "";
+                                }
+
+                                conteudo.append(String.format(formatRow,
+                                        Nomes[ID][Mesa],
+                                        Quantidade[ID][Mesa],
+                                        Preco[ID][Mesa],
+                                        Obs[ID][Mesa]));
+
+                                totalGeral += total;
+                            }
+                        }
+                        conteudo.append(String.format("\n%-40s %10.2f", "Total Geral", totalGeral));
+
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, true))) {
+                            writer.write(conteudo.toString());
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+
                         JOptionPane.showMessageDialog(null, "Pagamento com " + formaSelecionada + " confirmado. Compra finalizada.");
                     } else {
                         JOptionPane.showMessageDialog(null, "Pagamento com " + formaSelecionada + " cancelado.");
@@ -89,44 +123,34 @@ public class Carrinho_Tela implements Pratos {
             }
 
             this.Mesa = mesa;
-            String diretorio = "C:\\Users\\ALN\\Documents\\"; // Especifique o lugar para colocar o arquivo
-            String nomeArquivo = diretorio + "Pedido.txt";
-            StringBuilder conteudo = new StringBuilder(); // Armazenar as linhas
-            double totalGeral = 0;
 
-            // Formatação do texto para exibição e escrita no arquivo
-            String formatHeader = "%-30s %-10s %-10s %-20s %10s\n";
-            String formatRow = "%-30s %-10d %-10.2f %-20s %10.2f\n";
-            conteudo.append(String.format(formatHeader, ("Mesa: " + (Mesa+1)),"Nome", "Qtd", "Preço", "Observação", "Total"));
+            // Exibe o total no visor
+            StringBuilder conteudoExibido = new StringBuilder();
+            double totalGeralExibido = 0;
+
+            String formatHeaderExibido = "%-30s %-10s %-10s %-20s\n"; // Alinha o cabeçalho corretamente
+            String formatRowExibido = "%-30s %-10d %-10.2f %-20s\n";  // Alinha as linhas corretamente
+            conteudoExibido.append(String.format(formatHeaderExibido, "Nome", "Qtd", "Preço", "Observação"));
+
             for (int ID = 0; ID <= 11; ID++) {
                 double total = Quantidade[ID][Mesa] * Preco[ID][Mesa];
 
                 if (total > 0) {
-                	if(Obs[ID][Mesa] == null)
-                	{
-                		Obs[ID][Mesa] = "";
-                	}
-                	else {}
-                    conteudo.append(String.format(formatRow,
+                    if (Obs[ID][Mesa] == null) {
+                        Obs[ID][Mesa] = "";
+                    }
+
+                    conteudoExibido.append(String.format(formatRowExibido,
                             Nomes[ID][Mesa],
                             Quantidade[ID][Mesa],
                             Preco[ID][Mesa],
-                            Obs[ID][Mesa],
-                            total));
+                            Obs[ID][Mesa]));
 
-                    totalGeral += total;
+                    totalGeralExibido += total;
                 }
             }
-            conteudo.append(String.format("\n%-50s %10.2f", "Total Geral", totalGeral));
-
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, true))) {
-                writer.write(conteudo.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            // Exibe o total no visor
-            visor.setText(conteudo.toString());
+            conteudoExibido.append(String.format("\n%-40s %10.2f", "Total Geral", totalGeralExibido));
+            visor.setText(conteudoExibido.toString());
 
             setVisible(true);
         }

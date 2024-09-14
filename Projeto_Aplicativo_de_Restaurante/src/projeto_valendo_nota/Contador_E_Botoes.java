@@ -98,84 +98,84 @@ public class Contador_E_Botoes implements Pratos
         {
         case 0:
         {
-        	Nomes[ID][Mesa] = "Bruschetta               ";
+        	Nomes[ID][Mesa] = "Bruschetta";
         	Preco[ID][Mesa] = 50.00f;
         }
         break;
         
         case 1:
         {
-        	Nomes[ID][Mesa] = "Casca de Caranguejo      ";
+        	Nomes[ID][Mesa] = "Casca de Caranguejo";
         	Preco[ID][Mesa] = 75.00f;
         }
         break;
         
         case 2:
         {
-        	Nomes[ID][Mesa] = "Bolinho de Pirarucu      ";
+        	Nomes[ID][Mesa] = "Bolinho de Pirarucu";
         	Preco[ID][Mesa] = 55.00f;
         }
         break;
         
         case 3:
         {
-        	Nomes[ID][Mesa]= "Ratatouille                ";
+        	Nomes[ID][Mesa]= "Ratatouille";
         	Preco[ID][Mesa] = 180.00f;
         }
         break;
         
         case 4:
         { 
-        	Nomes[ID][Mesa] = "Risotos de frutos do mar ";
+        	Nomes[ID][Mesa] = "Risotos de frutos do mar";
         	Preco[ID][Mesa] = 10.00f;
         }
         break;
         
         case 5:
         {
-        	Nomes[ID][Mesa] = "Medalhão de filé mignon   ";
+        	Nomes[ID][Mesa] = "Medalhão de filé mignon";
         	Preco[ID][Mesa] = 10.00f;
         }
         break;
         
         case 6:
         { 
-        	Nomes[ID][Mesa] = "Tiramisu                   ";
+        	Nomes[ID][Mesa] = "Tiramisu";
         	Preco[ID][Mesa] = 60.00f;
         }
         break;
         
         case 7:
         {
-        	Nomes[ID][Mesa] = "Cheesecake                  ";
+        	Nomes[ID][Mesa] = "Cheesecake";
         	Preco[ID][Mesa] = 47.00f;
         }
         break;
         
         case 8:
         {
-        	Nomes[ID][Mesa] = "Brownie                     ";
+        	Nomes[ID][Mesa] = "Brownie";
         	Preco[ID][Mesa] = 47.00f;
         }
         break;
         
         case 9:
         {
-        	Nomes[ID][Mesa] = "Água                      ";
+        	Nomes[ID][Mesa] = "Água";
         	Preco[ID][Mesa] = 6.00f;
         }
         break;
         
         case 10:
         {
-        	Nomes[ID][Mesa] = "Refrigerante                      ";
+        	Nomes[ID][Mesa] = "Refrigerante";
         	Preco[ID][Mesa] = 9.00f;
         }
         break;
         
         case 11:
         {
-        	Nomes[ID][Mesa] = "Suco                       ";
+        	Nomes[ID][Mesa] = "Suco";
         	Preco[ID][Mesa] = 12.00f;
         }
         break;
