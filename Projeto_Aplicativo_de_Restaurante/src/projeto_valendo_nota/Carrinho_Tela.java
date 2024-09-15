@@ -1,12 +1,21 @@
 package projeto_valendo_nota;
 
 import java.awt.*;
+import java.awt.event.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.*;
 
 public class Carrinho_Tela implements Pratos {
+
+    private Salao salao;
+    private Tela_inicial telaInicial; // Referência à Tela_inicial
+
+    public Carrinho_Tela(Salao salao, Tela_inicial telaInicial) {
+        this.salao = salao;
+        this.telaInicial = telaInicial;
+    }
 
     public class Janela_Carrinho extends JFrame {
         int Mesa;
@@ -37,7 +46,10 @@ public class Carrinho_Tela implements Pratos {
             BotaoVoltar.setBackground(Color.DARK_GRAY);
             BotaoVoltar.setForeground(Color.WHITE);
             painel.add(BotaoVoltar);
-            BotaoVoltar.addActionListener(e -> dispose()); // Fecha a janela atual
+            BotaoVoltar.addActionListener(e -> {
+                dispose(); // Fecha a janela atual
+                
+            });
 
             // Visor para exibição dos resultados
             JTextArea visor = new JTextArea();
@@ -78,7 +90,8 @@ public class Carrinho_Tela implements Pratos {
                             JOptionPane.QUESTION_MESSAGE);
                     if (resposta == JOptionPane.YES_OPTION) {
                         // Gera o arquivo ao confirmar o pagamento
-                        String nomeArquivo = "Pedido_" + Mesa + ".txt"; // Nome do arquivo usando o número da mesa
+                        String diretorio = "C:\\Users\\tobia\\"; // Especifique o lugar para colocar o arquivo
+                        String nomeArquivo = diretorio + "Pedido_" + Mesa + ".txt"; // Nome do arquivo usando o número da mesa
                         StringBuilder conteudo = new StringBuilder();
                         double totalGeral = 0;
 
@@ -114,6 +127,20 @@ public class Carrinho_Tela implements Pratos {
                         }
 
                         JOptionPane.showMessageDialog(null, "Pagamento com " + formaSelecionada + " confirmado. Compra finalizada.");
+
+                        // Zerar pedidos e voltar para a tela do salão
+                        for (int ID = 0; ID < 12; ID++) {
+                            Quantidade[ID][Mesa] = 0;
+                            Obs[ID][Mesa] = "";
+                        }
+                        salao.atualizarTela(); // Atualiza a tela do salão
+
+                        dispose(); // Fecha a janela do carrinho
+
+                        // Fecha a tela inicial
+                        if (telaInicial != null) {
+                            telaInicial.dispose(); // Fecha a tela inicial
+                        }
                     } else {
                         JOptionPane.showMessageDialog(null, "Pagamento com " + formaSelecionada + " cancelado.");
                     }

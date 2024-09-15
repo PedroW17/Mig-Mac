@@ -20,7 +20,7 @@ public class Salao extends JFrame implements Pratos {
 
     private Salao() {
         // Configurações da Janela
-        setSize(880, 1080);
+        setSize(1280, 1080);
         setUndecorated(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -42,11 +42,11 @@ public class Salao extends JFrame implements Pratos {
 
         botoesMesa = new JButton[9];
         for (int i = 0; i < 9; i++) {
-            int xPos = 100 + (i % 3) * 290;
+            int xPos = 300 + (i % 3) * 290;
             int yPos = 250 + (i / 3) * 250;
 
             // Criando o botão para cada Mesa
-            botoesMesa[i] = new JButton(String.valueOf(i + 1)) {
+            botoesMesa[i] = new JButton(String.valueOf(i + 1)) { 
                 @Override
                 protected void paintComponent(Graphics g) {
                     Graphics2D g2d = (Graphics2D) g.create();
