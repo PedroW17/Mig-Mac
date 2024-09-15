@@ -48,7 +48,6 @@ public class Carrinho_Tela implements Pratos {
             painel.add(BotaoVoltar);
             BotaoVoltar.addActionListener(e -> {
                 dispose(); // Fecha a janela atual
-                
             });
 
             // Visor para exibição dos resultados
@@ -56,8 +55,11 @@ public class Carrinho_Tela implements Pratos {
             visor.setBounds(100, 130, 1080, 750);
             visor.setBackground(Color.white);
             visor.setEditable(false);
-            Font font = new Font("SansSerif", Font.PLAIN, 18);
-            visor.setFont(font);
+            
+            // Configurando fonte monoespaçada para alinhamento correto
+            Font fontMonoespacada = new Font("Courier New", Font.PLAIN, 24);
+            visor.setFont(fontMonoespacada);
+            
             visor.setBorder(BorderFactory.createLineBorder(Color.BLACK));
             painel.add(visor);
 
@@ -149,10 +151,11 @@ public class Carrinho_Tela implements Pratos {
 
             this.Mesa = mesa;
 
-            // Exibe o total no visor
+            // Exibe o total no visor com formatação ajustada
             StringBuilder conteudoExibido = new StringBuilder();
             double totalGeralExibido = 0;
 
+            // Ajustando a formatação para alinhamento adequado
             String formatHeaderExibido = "%-30s %-10s %-10s %-20s\n";
             String formatRowExibido = "%-30s %-10d %-10.2f %-20s\n";
             conteudoExibido.append(String.format(formatHeaderExibido, "Nome", "Qtd", "Preço", "Observação"));

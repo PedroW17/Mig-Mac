@@ -103,11 +103,11 @@ public class Contador_E_Botoes implements Pratos {
                 Preco[id][mesa] = 180.00f;
                 break;
             case 4:
-                Nomes[id][mesa] = "Risoto de Frutos do Mar";
+                Nomes[id][mesa] = "Risoto Frutos do Mar";
                 Preco[id][mesa] = 100.00f;
                 break;
             case 5:
-                Nomes[id][mesa] = "Medalhão de Filé Mignon";
+                Nomes[id][mesa] = "Filé Mignon";
                 Preco[id][mesa] = 120.00f;
                 break;
             case 6:

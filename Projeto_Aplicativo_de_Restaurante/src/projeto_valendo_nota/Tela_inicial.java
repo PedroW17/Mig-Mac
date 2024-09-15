@@ -22,10 +22,16 @@ public class Tela_inicial {
             painel.setLayout(null);
             painel.setBackground(Color.white);
 
-            // Adiciona o painel principal a um JScrollPane
             JScrollPane scrollPane = new JScrollPane(painel);
-            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-            add(scrollPane);
+
+         // Definir a política para a barra de rolagem horizontal (nunca aparecer)
+         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+         // Definir a política para a barra de rolagem vertical (aparecer quando necessário)
+         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+         scrollPane.getVerticalScrollBar().setUnitIncrement(70); // Velocidade ao rolar com a roda do mouse
+         scrollPane.getVerticalScrollBar().setBlockIncrement(50); // Velocidade ao rolar com "Page Up/Down"
+         add(scrollPane);
 
             // Título "MigMac"
             JLabel MigMac = new JLabel("MigMac");
@@ -52,7 +58,7 @@ public class Tela_inicial {
             painel.add(carrinho);
             carrinho.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                	 new Carrinho_Tela(Salao.getInstance(), Tela_inicial.this).new Janela_Carrinho(Mesa);
+                    new Carrinho_Tela(Salao.getInstance(), Tela_inicial.this).new Janela_Carrinho(Mesa);
                 }
             });
 
@@ -60,14 +66,14 @@ public class Tela_inicial {
             adicionarSeçõesEPedidos(painel);
 
             // Ajusta o tamanho do painel principal para o tamanho necessário
-            painel.setPreferredSize(new Dimension(1200, 2000)); // Ajustado para acomodar mais itens
+            painel.setPreferredSize(new Dimension(1200, 1600)); // Ajustado para acomodar mais itens
             setVisible(true);
         }
 
         private void adicionarSeçõesEPedidos(JPanel painel) {
             // Exemplo de como adicionar seções e pratos
             adicionarSeção(painel, "ENTRADAS", 50, 150, new String[] {
-                "C:\\Users\\tobia\\Bruschetta.jpg",
+                "Bruschetta.jpg",
                 "C:\\Users\\tobia\\casquinha-de-caranguejo.jpg",
                 "C:\\Users\\tobia\\bolinho-de-pirarucu.jpg"
             }, new String[] {
@@ -86,8 +92,8 @@ public class Tela_inicial {
                 "C:\\Users\\tobia\\filé_mignon.jpg"
             }, new String[] {
                 "Ratatouille",
-                "Risotos de frutos do mar",
-                "Medalhão de filé mignon"
+                "Risotos frutos do mar",
+                "Filé mignon"
             }, new String[] {
                 "Berinjela, Abobrinha, Tomate, Pimentão",
                 "Arroz, Frutos do mar variados, Caldo de peixe, Temperos diversos",
@@ -109,15 +115,15 @@ public class Tela_inicial {
             }, 6);
 
             adicionarSeção(painel, "BEBIDAS", 50, 1200, new String[] {
-                "C:\\Users\\tobia\\agua"
-                + "C:\\User\\\tobia\\Refrigerante"
-                + "C:\\Users\\tobia\\Suco"
+                "C:\\Users\\tobia\\agua.jpg",
+                "C:\\Users\\tobia\\Refrigerante.jpg",
+                "C:\\Users\\tobia\\Suco.jpg"
             }, new String[] {
                 "Água",
                 "Refrigerante",
                 "Suco"
             }, new String[] {
-                "Com gás, sem gás",
+                "Com gás, Sem gás",
                 "Coca-cola, Guaraná, Fanta Uva, Sprite",
                 "Maracujá, Laranja, Manga, Goiaba"
             }, 9);
@@ -168,8 +174,7 @@ public class Tela_inicial {
         }
     }
 
-	public void dispose() {
-		// TODO Auto-generated method stub
-		
-	}
+    public void dispose() {
+        // Fechar a janela
+    }
 }
