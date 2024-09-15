@@ -42,7 +42,9 @@ public class Tela_inicial {
             	public void actionPerformed(ActionEvent e)
             	{
             		dispose();
-            		Salao.getInstance().setVisible(true);
+            	
+            		Salao sala = Salao.getInstance();
+            		sala.atualizarTela();
             	}
             		});
             

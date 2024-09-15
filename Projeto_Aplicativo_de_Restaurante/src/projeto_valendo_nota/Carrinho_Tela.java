@@ -37,9 +37,7 @@ public class Carrinho_Tela implements Pratos {
             BotaoVoltar.setBackground(Color.DARK_GRAY);
             BotaoVoltar.setForeground(Color.WHITE);
             painel.add(BotaoVoltar);
-            BotaoVoltar.addActionListener(e -> {
-                dispose(); // Fecha a janela atual
-            });
+            BotaoVoltar.addActionListener(e -> dispose()); // Fecha a janela atual
 
             // Visor para exibição dos resultados
             JTextArea visor = new JTextArea();
@@ -80,17 +78,16 @@ public class Carrinho_Tela implements Pratos {
                             JOptionPane.QUESTION_MESSAGE);
                     if (resposta == JOptionPane.YES_OPTION) {
                         // Gera o arquivo ao confirmar o pagamento
-                        String diretorio = "C:\\Users\\ALN\\Documents\\"; // Especifique o lugar para colocar o arquivo
-                        String nomeArquivo = diretorio + "Pedido.txt";
-                        StringBuilder conteudo = new StringBuilder(); // Armazenar as linhas
+                        String nomeArquivo = "Pedido_" + Mesa + ".txt"; // Nome do arquivo usando o número da mesa
+                        StringBuilder conteudo = new StringBuilder();
                         double totalGeral = 0;
 
                         // Formatação do texto para exibição e escrita no arquivo
-                        String formatHeader = "%-30s %-10s %-10s %-20s\n"; // Ajustei para alinhar melhor as colunas
-                        String formatRow = "%-30s %-10d %-10.2f %-20s\n";  // Ajustei para incluir espaçamento mais uniforme
+                        String formatHeader = "%-30s %-10s %-10s %-20s\n";
+                        String formatRow = "%-30s %-10d %-10.2f %-20s\n";
                         conteudo.append(String.format(formatHeader, "Nome", "Qtd", "Preço", "Observação"));
 
-                        for (int ID = 0; ID <= 11; ID++) {
+                        for (int ID = 0; ID < 12; ID++) {
                             double total = Quantidade[ID][Mesa] * Preco[ID][Mesa];
 
                             if (total > 0) {
@@ -109,9 +106,10 @@ public class Carrinho_Tela implements Pratos {
                         }
                         conteudo.append(String.format("\n%-40s %10.2f", "Total Geral", totalGeral));
 
-                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, true))) {
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
                             writer.write(conteudo.toString());
                         } catch (IOException ex) {
+                            JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo. Tente novamente.");
                             ex.printStackTrace();
                         }
 
@@ -128,11 +126,11 @@ public class Carrinho_Tela implements Pratos {
             StringBuilder conteudoExibido = new StringBuilder();
             double totalGeralExibido = 0;
 
-            String formatHeaderExibido = "%-30s %-10s %-10s %-20s\n"; // Alinha o cabeçalho corretamente
-            String formatRowExibido = "%-30s %-10d %-10.2f %-20s\n";  // Alinha as linhas corretamente
+            String formatHeaderExibido = "%-30s %-10s %-10s %-20s\n";
+            String formatRowExibido = "%-30s %-10d %-10.2f %-20s\n";
             conteudoExibido.append(String.format(formatHeaderExibido, "Nome", "Qtd", "Preço", "Observação"));
 
-            for (int ID = 0; ID <= 11; ID++) {
+            for (int ID = 0; ID < 12; ID++) {
                 double total = Quantidade[ID][Mesa] * Preco[ID][Mesa];
 
                 if (total > 0) {
