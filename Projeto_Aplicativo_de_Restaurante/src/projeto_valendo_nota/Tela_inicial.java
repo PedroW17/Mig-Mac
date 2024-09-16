@@ -24,14 +24,14 @@ public class Tela_inicial {
 
             JScrollPane scrollPane = new JScrollPane(painel);
 
-         // Definir a política para a barra de rolagem horizontal (nunca aparecer)
-         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-         // Definir a política para a barra de rolagem vertical (aparecer quando necessário)
-         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+            // Definir a política para a barra de rolagem horizontal (nunca aparecer)
+            scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            // Definir a política para a barra de rolagem vertical (aparecer quando necessário)
+            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-         scrollPane.getVerticalScrollBar().setUnitIncrement(70); // Velocidade ao rolar com a roda do mouse
-         scrollPane.getVerticalScrollBar().setBlockIncrement(50); // Velocidade ao rolar com "Page Up/Down"
-         add(scrollPane);
+            scrollPane.getVerticalScrollBar().setUnitIncrement(70); // Velocidade ao rolar com a roda do mouse
+            scrollPane.getVerticalScrollBar().setBlockIncrement(50); // Velocidade ao rolar com "Page Up/Down"
+            add(scrollPane);
 
             // Título "MigMac"
             JLabel MigMac = new JLabel("MigMac");
@@ -59,6 +59,7 @@ public class Tela_inicial {
             carrinho.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     new Carrinho_Tela(Salao.getInstance(), Tela_inicial.this).new Janela_Carrinho(Mesa);
+                    dispose();
                 }
             });
 

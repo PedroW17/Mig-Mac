@@ -6,12 +6,14 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class Salao extends JFrame implements Pratos {
+public class Salao extends JFrame implements Pratos 
+{
     private static Salao instance;
     private JPanel painel;
     private JButton[] botoesMesa;
 
-    public static Salao getInstance() {
+    public static Salao getInstance() 
+    {
         if (instance == null) {
             instance = new Salao();
         }
@@ -80,7 +82,7 @@ public class Salao extends JFrame implements Pratos {
                 public void actionPerformed(ActionEvent e) {
                     Tela_inicial telaInicial = new Tela_inicial();
                     telaInicial.new Janela(mesa + 1); // Passa o número da mesa para Tela_inicial
-                    setVisible(false); // Oculta a janela Salao
+                    dispose();// Oculta a janela Salao
                 }
             });
         }
