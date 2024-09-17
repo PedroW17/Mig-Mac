@@ -47,6 +47,8 @@ public class Carrinho_Tela implements Pratos {
             BotaoVoltar.setForeground(Color.WHITE);
             painel.add(BotaoVoltar);
             BotaoVoltar.addActionListener(e -> {
+            	Tela_inicial telaInicial = new Tela_inicial();
+            	telaInicial.new Janela(mesa+1);
                 dispose(); // Fecha a janela atual
             });
 
@@ -89,10 +91,10 @@ public class Carrinho_Tela implements Pratos {
                             "Confirmar forma de pagamento: " + formaSelecionada + "?",
                             "Confirmar Pagamento",
                             JOptionPane.YES_NO_OPTION,
-                            JOptionPane.QUESTION_MESSAGE);
+                            JOptionPane.PLAIN_MESSAGE, null);
                     if (resposta == JOptionPane.YES_OPTION) {
                         // Gera o arquivo ao confirmar o pagamento
-                        String diretorio = "C:\\Users\\tobia\\"; // Especifique o lugar para colocar o arquivo
+                        String diretorio = "/Documentos"; // Especifique o lugar para colocar o arquivo
                         String nomeArquivo = diretorio + "Pedido_" + Mesa + ".txt"; // Nome do arquivo usando o número da mesa
                         StringBuilder conteudo = new StringBuilder();
                         double totalGeral = 0;
@@ -119,16 +121,16 @@ public class Carrinho_Tela implements Pratos {
                                 totalGeral += total;
                             }
                         }
-                        conteudo.append(String.format("\n%-40s %10.2f", "Total Geral", totalGeral));
+                        conteudo.append(String.format("\n%-30s %10.2f", "Total Geral", totalGeral));
 
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
                             writer.write(conteudo.toString());
                         } catch (IOException ex) {
-                            JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo. Tente novamente.");
+                            JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo. Tente novamente.", "ERRO!" ,JOptionPane.PLAIN_MESSAGE, null);
                             ex.printStackTrace();
                         }
-
-                        JOptionPane.showMessageDialog(null, "Pagamento com " + formaSelecionada + " confirmado. Compra finalizada.");
+                        ImageIcon migmac = new ImageIcon(getClass().getResource("/Pratos/MIGMAC.jpg"));
+                        JOptionPane.showMessageDialog(null, "Pagamento com " + formaSelecionada + " confirmado. Compra finalizada.", "Confirmação de Pagamento:" ,JOptionPane.PLAIN_MESSAGE, null);
 
                         // Zerar pedidos e voltar para a tela do salão
                         for (int ID = 0; ID < 12; ID++) {
@@ -144,7 +146,7 @@ public class Carrinho_Tela implements Pratos {
                             telaInicial.dispose(); // Fecha a tela inicial
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Pagamento com " + formaSelecionada + " cancelado.");
+                        JOptionPane.showMessageDialog(null, "Pagamento com " + formaSelecionada + " cancelado.", "Confirmação de Pagamento:" ,JOptionPane.PLAIN_MESSAGE, null);
                     }
                 });
             }
@@ -177,7 +179,7 @@ public class Carrinho_Tela implements Pratos {
                     totalGeralExibido += total;
                 }
             }
-            conteudoExibido.append(String.format("\n%-40s %10.2f", "Total Geral", totalGeralExibido));
+            conteudoExibido.append(String.format("\n%-36s %10.2f", "Total Geral", totalGeralExibido));
             visor.setText(conteudoExibido.toString());
 
             setVisible(true);

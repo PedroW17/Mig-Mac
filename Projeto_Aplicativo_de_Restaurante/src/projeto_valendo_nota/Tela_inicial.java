@@ -59,6 +59,7 @@ public class Tela_inicial {
             carrinho.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     new Carrinho_Tela(Salao.getInstance(), Tela_inicial.this).new Janela_Carrinho(Mesa);
+                    Salao.getInstance().dispose();
                     dispose();
                 }
             });
@@ -74,13 +75,13 @@ public class Tela_inicial {
         private void adicionarSeçõesEPedidos(JPanel painel) {
             // Exemplo de como adicionar seções e pratos
             adicionarSeção(painel, "ENTRADAS", 50, 150, new String[] {
-                "Bruschetta.jpg",
-                "C:\\Users\\tobia\\casquinha-de-caranguejo.jpg",
-                "C:\\Users\\tobia\\bolinho-de-pirarucu.jpg"
+                "/Pratos/Bruschetta.jpeg",
+                "/Pratos/Casca de Caranguejo.jpeg",
+                "/Pratos/Bolinho de Pirarucu.jpeg"
             }, new String[] {
-                "Bruschetta",
-                "Casca de Caranguejo", 
-                "Bolinho de Pirarucu"
+                "Bruschetta - R$ 50,00",
+                "Casca de Caranguejo - R$ 75,00", 
+                "Bolinho de Pirarucu - R$ 55,00"
             }, new String[] {
                 "Pão italiano, Tomate, Alho, Manjericão",
                 "Caranguejo, Leite de coco, Pimentão, Farinha de rosca",
@@ -88,13 +89,13 @@ public class Tela_inicial {
             }, 0);
 
             adicionarSeção(painel, "PRATO PRINCIPAL", 50, 500, new String[] {
-                "C:\\Users\\tobia\\Ratatouille.jpg",
-                "C:\\Users\\tobia\\Risotos_de_frutos_mar.jpg",
-                "C:\\Users\\tobia\\filé_mignon.jpg"
+                "/Pratos/Ratattouile.jpeg",
+                "/Pratos/Risoto de Frutos do Mar.jpeg",
+                "/Pratos/Filé MIgnon.jpeg"
             }, new String[] {
-                "Ratatouille",
-                "Risotos frutos do mar",
-                "Filé mignon"
+                "Ratatouille - R$ 180,00",
+                "Risotos frutos do mar - R$ 100,00",
+                "Filé mignon - R$ 120,00"
             }, new String[] {
                 "Berinjela, Abobrinha, Tomate, Pimentão",
                 "Arroz, Frutos do mar variados, Caldo de peixe, Temperos diversos",
@@ -102,13 +103,13 @@ public class Tela_inicial {
             }, 3);
 
             adicionarSeção(painel, "SOBREMESA", 50, 850, new String[] {
-                "C:\\Users\\tobia\\Tiramisu.jpg",
-                "C:\\Users\\tobia\\cheesecake.jpg",
-                "C:\\Users\\tobia\\brownie.jpg"
+                "/Pratos/Tiramisú.jpeg",
+                "/Pratos/Cheescake.jpeg",
+                "/Pratos/Brownie.jpeg"
             }, new String[] {
-                "Tiramisu",
-                "Cheesecake",
-                "Brownie"
+                "Tiramisu - R$ 60,00",
+                "Cheesecake - R$ 47,00",
+                "Brownie - R$ 47,00"
             }, new String[] {
                 "Mascarpone, Café, Cacau",
                 "Queijo, Biscoito, Açúcar",
@@ -116,13 +117,13 @@ public class Tela_inicial {
             }, 6);
 
             adicionarSeção(painel, "BEBIDAS", 50, 1200, new String[] {
-                "C:\\Users\\tobia\\agua.jpg",
-                "C:\\Users\\tobia\\Refrigerante.jpg",
-                "C:\\Users\\tobia\\Suco.jpg"
+                "/Pratos/Água.jpeg",
+                "/Pratos/Refrigerante.jpeg",
+                "/Pratos/Sucos.jpeg"
             }, new String[] {
-                "Água",
-                "Refrigerante",
-                "Suco"
+                "Água - R$ 6,00",
+                "Refrigerante - R$ 9,00",
+                "Suco - R$ 12,00"
             }, new String[] {
                 "Com gás, Sem gás",
                 "Coca-cola, Guaraná, Fanta Uva, Sprite",
@@ -139,25 +140,28 @@ public class Tela_inicial {
 
             int larguraImagem = 150;
             int alturaImagem = 150;
-            int espacamento = 200; // Ajustado para mais espaçamento
+            int espacamento = 260; // Ajustado para mais espaçamento
 
             for (int i = 0; i < caminhosImagens.length; i++) {
                 // Criando o painel para cada item
                 JPanel painelItem = new JPanel();
                 painelItem.setLayout(null);
-                painelItem.setBounds(x + i * (larguraImagem + espacamento), y, 320, 200);
+                painelItem.setBounds(x + i * (larguraImagem + espacamento), y, 380, 200);
                 painel.add(painelItem);
+                
+                // Pega os caminhos relativos das imagens
+                ImageIcon pratos = new ImageIcon(getClass().getResource(caminhosImagens[i]));
 
                 // Adicionando a imagem
                 JLabel imagem = new JLabel();
                 imagem.setBounds(0, 0, larguraImagem, alturaImagem);
-                ImageIcon icone = new ImageIcon(new ImageIcon(caminhosImagens[i]).getImage().getScaledInstance(larguraImagem, alturaImagem, Image.SCALE_SMOOTH));
+                ImageIcon icone = new ImageIcon(pratos.getImage().getScaledInstance(larguraImagem, alturaImagem, Image.SCALE_SMOOTH));
                 imagem.setIcon(icone);
                 painelItem.add(imagem);
 
                 // Adicionando o nome do prato
                 JLabel nomePrato = new JLabel(nomes[i]);
-                nomePrato.setBounds(larguraImagem + 10, 0, 150, 30);
+                nomePrato.setBounds(larguraImagem + 10, 0, 210, 30);
                 Font fonteNomePrato = new Font("Serif", Font.BOLD, 14);
                 nomePrato.setFont(fonteNomePrato);
                 painelItem.add(nomePrato);

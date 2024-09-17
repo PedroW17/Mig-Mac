@@ -26,7 +26,7 @@ public class Contador_E_Botoes implements Pratos {
 
         // Contador de Quantidade
         JLabel contadorLabel = new JLabel(String.valueOf(contador));
-        contadorLabel.setBounds(220, 117, 50, 50);
+        contadorLabel.setBounds(220, 122, 50, 50);
         contadorLabel.setFont(fonte);
         painel.add(contadorLabel);
 
@@ -58,7 +58,7 @@ public class Contador_E_Botoes implements Pratos {
 
         // Botão + (Adicionar)
         JButton botaoMais = new JButton("+");
-        botaoMais.setBounds(240, 120, 42, 42);
+        botaoMais.setBounds(240, 128, 42, 42);
         botaoMais.setBackground(Color.DARK_GRAY);
         botaoMais.setForeground(Color.WHITE);
         botaoMais.setFont(fonte);
@@ -71,7 +71,7 @@ public class Contador_E_Botoes implements Pratos {
 
         // Botão - (Remover)
         JButton botaoMenos = new JButton("-");
-        botaoMenos.setBounds(158, 120, 42, 42);
+        botaoMenos.setBounds(158, 128, 42, 42);
         botaoMenos.setBackground(Color.DARK_GRAY);
         botaoMenos.setForeground(Color.WHITE);
         botaoMenos.setFont(fonte);
