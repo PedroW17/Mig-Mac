@@ -67,7 +67,8 @@ public class Tela_inicial {
             });
 
             // Carrinho
-            JButton carrinho = new JButton("Carrinho");
+            ImageIcon Carrinho = new ImageIcon(getClass().getResource("/Pratos/Carrinho.png"));
+            JButton carrinho = new JButton(Carrinho);
             carrinho.setBounds(1160, 10, 90, 90);
             carrinho.setBackground(Color.DARK_GRAY);
             carrinho.setForeground(Color.WHITE);
