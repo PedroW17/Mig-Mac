@@ -28,21 +28,35 @@ public class Tela_inicial {
             scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             // Definir a política para a barra de rolagem vertical (aparecer quando necessário)
             scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+            //Personalizar a barra de rolagem
+            JScrollBar barra = scrollPane.getVerticalScrollBar();
+            barra.setPreferredSize(new Dimension(10,0));
+            barra.setUI(new javax.swing.plaf.basic.BasicScrollBarUI() {
+                @Override
+                protected void configureScrollBarColors() {
+                    this.thumbColor = Color.DARK_GRAY; // Cor da barra
+                    this.trackColor = Color.LIGHT_GRAY; // Cor do trilho
+                }
+            });
 
             scrollPane.getVerticalScrollBar().setUnitIncrement(70); // Velocidade ao rolar com a roda do mouse
             scrollPane.getVerticalScrollBar().setBlockIncrement(50); // Velocidade ao rolar com "Page Up/Down"
             add(scrollPane);
 
+            
             // Título "MigMac"
-            JLabel MigMac = new JLabel("MigMac");
+            ImageIcon migmac = new ImageIcon(getClass().getResource("/Pratos/MIGMAC.jpg"));
+            JLabel MigMac = new JLabel(migmac);
             painel.add(MigMac);
-            MigMac.setBounds(545, 5, 300, 100);
+            MigMac.setBounds(500, 5, 300, 140);
             Font fonteMigMac = new Font("Serif", Font.BOLD, 48);
             MigMac.setFont(fonteMigMac);
 
             // Voltar
             JButton Voltar = new JButton("Voltar");
-            Voltar.setBounds(1120, 10, 100, 100);
+            Voltar.setBounds(50, 10, 90, 90);
+            Voltar.setBackground(Color.DARK_GRAY);
+            Voltar.setForeground(Color.WHITE);
             painel.add(Voltar);
             Voltar.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
@@ -54,7 +68,9 @@ public class Tela_inicial {
 
             // Carrinho
             JButton carrinho = new JButton("Carrinho");
-            carrinho.setBounds(10, 10, 100, 100);
+            carrinho.setBounds(1160, 10, 90, 90);
+            carrinho.setBackground(Color.DARK_GRAY);
+            carrinho.setForeground(Color.WHITE);
             painel.add(carrinho);
             carrinho.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {

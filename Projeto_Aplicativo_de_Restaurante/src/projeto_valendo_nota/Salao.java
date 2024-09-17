@@ -22,7 +22,7 @@ public class Salao extends JFrame implements Pratos
 
     private Salao() {
         // Configurações da Janela
-        setSize(1280, 1080);
+        setSize(1000, 1080);
         setUndecorated(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -32,19 +32,17 @@ public class Salao extends JFrame implements Pratos
         painel.setLayout(null);
         painel.setBackground(Color.white);
         add(painel);
-
+        
         // Título "MigMac"
-        JLabel MigMac = new JLabel("MigMac");
-        MigMac.setBounds(0, 10, getWidth(), 60);
+        ImageIcon migmac = new ImageIcon(getClass().getResource("/Pratos/MIGMAC.jpg"));
+        JLabel MigMac = new JLabel(migmac);
+        MigMac.setBounds(0, 10, getWidth(), 150);
         MigMac.setHorizontalAlignment(SwingConstants.CENTER);
-        Font fonteMigMac = new Font("Serif", Font.BOLD, 48);
-        MigMac.setFont(fonteMigMac);
-        MigMac.setForeground(Color.black);
         painel.add(MigMac);
 
         botoesMesa = new JButton[9];
         for (int i = 0; i < 9; i++) {
-            int xPos = 300 + (i % 3) * 290;
+            int xPos = 170 + (i % 3) * 290;
             int yPos = 250 + (i / 3) * 250;
 
             // Criando o botão para cada Mesa
@@ -69,7 +67,7 @@ public class Salao extends JFrame implements Pratos
 
             botoesMesa[i].setBounds(xPos, yPos, 100, 100);
             painel.add(botoesMesa[i]);
-            botoesMesa[i].setBackground(Color.BLACK);
+            botoesMesa[i].setBackground(Color.DARK_GRAY);
             botoesMesa[i].setForeground(Color.WHITE);
             botoesMesa[i].setFont(new Font("Serif", Font.BOLD, 24));
             botoesMesa[i].setFocusPainted(false);

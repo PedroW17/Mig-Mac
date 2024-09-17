@@ -3,9 +3,11 @@ package projeto_valendo_nota;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
 
 public class Carrinho_Tela implements Pratos {
 
@@ -34,15 +36,16 @@ public class Carrinho_Tela implements Pratos {
             add(painel);
 
             // Título "MigMac"
-            JLabel MigMac = new JLabel("MigMac");
-            MigMac.setBounds(545, 5, 300, 100);
+            ImageIcon migmac = new ImageIcon(getClass().getResource("/Pratos/MIGMAC.jpg"));
+            JLabel MigMac = new JLabel(migmac);
+            MigMac.setBounds(500, 5, 300, 140);
             Font fonteMigMac = new Font("Serif", Font.BOLD, 48);
             MigMac.setFont(fonteMigMac);
             painel.add(MigMac);
 
             // Botão Voltar
             JButton BotaoVoltar = new JButton("Voltar");
-            BotaoVoltar.setBounds(20, 10, 100, 100);
+            BotaoVoltar.setBounds(50, 10, 90, 90);
             BotaoVoltar.setBackground(Color.DARK_GRAY);
             BotaoVoltar.setForeground(Color.WHITE);
             painel.add(BotaoVoltar);
@@ -54,8 +57,9 @@ public class Carrinho_Tela implements Pratos {
 
             // Visor para exibição dos resultados
             JTextArea visor = new JTextArea();
-            visor.setBounds(100, 130, 1080, 750);
-            visor.setBackground(Color.white);
+            visor.setBounds(100, 160, 1080, 750);
+            visor.setBackground(Color.DARK_GRAY);
+            visor.setForeground(Color.WHITE);
             visor.setEditable(false);
             
             // Configurando fonte monoespaçada para alinhamento correto
@@ -67,7 +71,7 @@ public class Carrinho_Tela implements Pratos {
 
             // Adicionando o rótulo para formas de pagamento
             JLabel pagamentoLabel = new JLabel("Formas de Pagamento:");
-            pagamentoLabel.setBounds(100, 900, 300, 30);
+            pagamentoLabel.setBounds(100, 920, 300, 30);
             Font fontePagamento = new Font("SansSerif", Font.BOLD, 24);
             pagamentoLabel.setFont(fontePagamento);
             painel.add(pagamentoLabel);
@@ -79,9 +83,9 @@ public class Carrinho_Tela implements Pratos {
 
             for (int i = 0; i < formasPagamento.length; i++) {
                 JButton botaoPagamento = new JButton(formasPagamento[i]);
-                botaoPagamento.setBounds(posicaoXInicial + i * espacamento, 950, 200, 50);
-                botaoPagamento.setBackground(Color.LIGHT_GRAY);
-                botaoPagamento.setForeground(Color.BLACK);
+                botaoPagamento.setBounds(posicaoXInicial + i * espacamento, 970, 200, 50);
+                botaoPagamento.setBackground(Color.DARK_GRAY);
+                botaoPagamento.setForeground(Color.WHITE);
                 painel.add(botaoPagamento);
 
                 // Ação dos botões
@@ -94,8 +98,9 @@ public class Carrinho_Tela implements Pratos {
                             JOptionPane.PLAIN_MESSAGE, null);
                     if (resposta == JOptionPane.YES_OPTION) {
                         // Gera o arquivo ao confirmar o pagamento
-                        String diretorio = "/Documentos"; // Especifique o lugar para colocar o arquivo
-                        String nomeArquivo = diretorio + "Pedido_" + Mesa + ".txt"; // Nome do arquivo usando o número da mesa
+                        String pastaDocumentos = FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
+                        String nomeArquivo = ("Pedido_Mesa_" + (Mesa+1) + ".txt"); // Nome do arquivo usando o número da mesa
+                        File pedido = new File(pastaDocumentos, nomeArquivo);
                         StringBuilder conteudo = new StringBuilder();
                         double totalGeral = 0;
 
@@ -123,13 +128,13 @@ public class Carrinho_Tela implements Pratos {
                         }
                         conteudo.append(String.format("\n%-30s %10.2f", "Total Geral", totalGeral));
 
-                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(pedido))) {
                             writer.write(conteudo.toString());
                         } catch (IOException ex) {
                             JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo. Tente novamente.", "ERRO!" ,JOptionPane.PLAIN_MESSAGE, null);
                             ex.printStackTrace();
                         }
-                        ImageIcon migmac = new ImageIcon(getClass().getResource("/Pratos/MIGMAC.jpg"));
+                        
                         JOptionPane.showMessageDialog(null, "Pagamento com " + formaSelecionada + " confirmado. Compra finalizada.", "Confirmação de Pagamento:" ,JOptionPane.PLAIN_MESSAGE, null);
 
                         // Zerar pedidos e voltar para a tela do salão
