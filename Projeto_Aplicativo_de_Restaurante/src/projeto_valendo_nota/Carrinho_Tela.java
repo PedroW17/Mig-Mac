@@ -39,15 +39,13 @@ public class Carrinho_Tela implements Pratos {
             ImageIcon migmac = new ImageIcon(getClass().getResource("/Pratos/MIGMAC.jpg"));
             JLabel MigMac = new JLabel(migmac);
             MigMac.setBounds(500, 5, 300, 140);
-            Font fonteMigMac = new Font("Serif", Font.BOLD, 48);
-            MigMac.setFont(fonteMigMac);
             painel.add(MigMac);
 
             // Botão Voltar
-            JButton BotaoVoltar = new JButton("Voltar");
+            ImageIcon voltar = new ImageIcon(getClass().getResource("/Pratos/Voltar.png"));
+            JButton BotaoVoltar = new JButton(voltar);
             BotaoVoltar.setBounds(50, 10, 90, 90);
             BotaoVoltar.setBackground(Color.DARK_GRAY);
-            BotaoVoltar.setForeground(Color.WHITE);
             painel.add(BotaoVoltar);
             BotaoVoltar.addActionListener(e -> {
             	Tela_inicial telaInicial = new Tela_inicial();

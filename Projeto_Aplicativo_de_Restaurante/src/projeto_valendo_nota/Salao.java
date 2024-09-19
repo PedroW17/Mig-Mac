@@ -46,7 +46,7 @@ public class Salao extends JFrame implements Pratos
             int yPos = 250 + (i / 3) * 250;
 
             // Criando o botão para cada Mesa
-            botoesMesa[i] = new JButton(String.valueOf(i + 1)) { 
+            botoesMesa[i] = new JButton(String.valueOf("Mesa: "+(i + 1))) { 
                 @Override
                 protected void paintComponent(Graphics g) {
                     Graphics2D g2d = (Graphics2D) g.create();

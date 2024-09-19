@@ -53,10 +53,10 @@ public class Tela_inicial {
             MigMac.setFont(fonteMigMac);
 
             // Voltar
-            JButton Voltar = new JButton("Voltar");
+            ImageIcon voltar = new ImageIcon(getClass().getResource("/Pratos/Voltar.png"));
+            JButton Voltar = new JButton(voltar);
             Voltar.setBounds(50, 10, 90, 90);
             Voltar.setBackground(Color.DARK_GRAY);
-            Voltar.setForeground(Color.WHITE);
             painel.add(Voltar);
             Voltar.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
